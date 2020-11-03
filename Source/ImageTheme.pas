@@ -90,7 +90,7 @@ type
   end;
 
   
-  TBlueImageTheme = class(TDevImageTheme)
+  TTangoImageTheme = class(TDevImageTheme)
   public
     constructor Create; override;
   end;
@@ -382,17 +382,17 @@ begin
   FTitle := 'New Look';
 end;
 
-//----------------- TBlueImageTheme ------------------------------------------------------------------------------------
+//----------------- TTangoImageTheme ------------------------------------------------------------------------------------
 
-constructor TBlueImageTheme.Create;
+constructor TTangoImageTheme.Create;
 begin
   inherited;
 
-  MenuImages    := dmMain.MenuImages_Blue;
-  ProjectImages := dmMain.ProjectImage_Blue;
+  MenuImages    := dmMain.MenuImages_Modern;
+  ProjectImages := dmMain.ProjectImage_Modern;
   BrowserImages := dmMain.ClassImages;
 
-  FTitle := 'Blue';
+  FTitle := 'Modern';
 end;
 
 //----------------- TCustomImageThemeFactory ---------------------------------------------------------------------------
@@ -530,8 +530,8 @@ begin
 
   FOnThemeChanged := nil;
   RegisterTheme(TNewLookImageTheme);
-  RegisterTheme(TGnomeImageTheme);
-  RegisterTheme(TBlueImageTheme);
+  //RegisterTheme(TGnomeImageTheme);   //discard by Anbang Li on September 2020
+  RegisterTheme(TTangoImageTheme);
 
   FCurrentTheme := Themes[0];
 end;

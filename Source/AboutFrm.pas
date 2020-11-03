@@ -100,7 +100,7 @@ begin
 
   lblWebsite.Caption := Lang[ID_AB_WEBSITE];
   if Pos('Chinese', devData.Language) > 0 then
-    lblWebSiteURL.Caption := 'https://banzhusoft.github.io/devcpp-cn/'
+    lblWebSiteURL.Caption := 'https://devcpp.gitee.io'  //'https://banzhusoft.github.io/devcpp-cn/'
   else
     lblWebSiteURL.Caption := 'https://banzhusoft.github.io/devcpp/';
 
@@ -159,6 +159,7 @@ const
     '- MinGW compiler system: Mumit Khan, J.J. van der Heijden, Colin Hendrix and GNU developers'#13#10 +
     '- Splash screen and association icons: Matthijs Crielaard'#13#10 +
     '- New Look theme: Gerard Caulfield'#13#10 +
+    '- Modern theme: Crystall and Tango icon libraries, Anbang Li'#13#10 +
     '- Gnome icons: Gnome designers'#13#10 +
     '- Blue theme: Thomas Thron';
 begin

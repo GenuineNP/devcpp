@@ -125,6 +125,7 @@ type
       ToLine: Integer);
   public
     BookmarkLines: array [0..10] of integer;  //bookmark lines. //by abli
+    procedure ResetBookMarks;
     procedure ToggleBookMark;
     procedure GotoPrevBookmark;
     procedure GotoNextBookmark;
@@ -344,6 +345,13 @@ begin
 
   // Set status bar for the first time
   EditorStatusChange(Self, [scInsertMode]);
+
+  // Set Completions States for the first time
+  fParenthCompleteState := scsSkipped;    // )
+  fArrayCompleteState := scsSkipped;      // ]
+  fBraceCompleteState := scsSkipped;      // }
+  fSingleQuoteCompleteState := scsSkipped;   // '
+  fDoubleQuoteCompleteState := scsSkipped;   // "
 
   //bookmarks lines. Only use 0..9. The 10th is always set as 9999.
   for I := 0 to 10 do
@@ -566,23 +574,37 @@ begin
     IncrementalForm.Editor := fText;
 end;
 
+procedure TEditor.ResetBookMarks;  //reset bookmark after formatting
+var
+  i, n: integer;
+begin
+  n := Text.Lines.Count;
+  for I := 0 to 9 do begin
+    if ((BookmarkLines[I] <> 9999) and (BookmarkLines[I] < n )) then
+      Text.SetBookmark(I, Text.CaretX, BookmarkLines[I]);
+    if (BookmarkLines[I] > n ) then
+      BookmarkLines[I] := 9999;
+  end;
+
+end;
+
 procedure TEditor.ToggleBookMark;
 var
   i, j, line: integer;
 begin
   line := Text.CaretY;
   for I := 0 to 9 do begin
-    if (BookmarkLines[I] = line) then begin
+    if (BookmarkLines[I] = line) then begin //clear bookmark of this line
       BookmarkLines[I] := 9999;
       Text.ClearBookMark(I);
-      for J := I to 9 do
+      for J := I to 9 do // move bookmark lines
         BookmarkLines[J] := BookmarkLines[J+1];
       exit;
     end;
   end;
   if (BookmarkLines[9] <> 9999) then  //if more than ten bookmarks, clear the last one
     Text.ClearBookMark(9);
-  for I := 8 downto 0 do begin
+  for I := 8 downto 0 do begin   //find the appropriate index
     if BookmarkLines[I] < line then
       break
     else begin
@@ -1014,7 +1036,7 @@ var
     fParenthCompleteState := scsInserted;
   end;
 
-  procedure HandleParentheseSkip;
+  procedure HandleParentheseSkip;     // )
   begin
     if fParenthCompleteState = scsFinished then begin
       fText.CaretXY := BufferCoord(fText.CaretX + 1, fText.CaretY); // skip over
@@ -1029,7 +1051,7 @@ var
     fArrayCompleteState := scsInserted;
   end;
 
-  procedure HandleArraySkip;
+  procedure HandleArraySkip;         // ]
   begin
     if fArrayCompleteState = scsFinished then begin
       fText.CaretXY := BufferCoord(fText.CaretX + 1, fText.CaretY); // skip over
@@ -1111,7 +1133,7 @@ var
     end;
   end;
 
-  procedure HandleBraceSkip;
+  procedure HandleBraceSkip;      // }
   begin
     if fBraceCompleteState = scsFinished then begin
       fText.CaretXY := BufferCoord(fText.CaretX + 1, fText.CaretY); // skip over
@@ -1224,11 +1246,11 @@ begin
           HandleDoubleQuoteCompletion;
       end;
   else begin
-      fParenthCompleteState := scsSkipped;
-      fArrayCompleteState := scsSkipped;
-      fBraceCompleteState := scsSkipped;
-      fSingleQuoteCompleteState := scsSkipped;
-      fDoubleQuoteCompleteState := scsSkipped;
+//      fParenthCompleteState := scsSkipped;
+//      fArrayCompleteState := scsSkipped;
+//      fBraceCompleteState := scsSkipped;
+//      fSingleQuoteCompleteState := scsSkipped;
+//      fDoubleQuoteCompleteState := scsSkipped;
     end;
   end;
 end;

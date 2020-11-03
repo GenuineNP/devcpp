@@ -64,7 +64,7 @@ object ExceptionFrm: TExceptionFrm
   object lblAddress: TLabel
     Left = 106
     Top = 53
-    Width = 486
+    Width = 65
     Height = 16
     Caption = 'lblAddress'
   end
@@ -178,7 +178,7 @@ object ExceptionFrm: TExceptionFrm
     Cursor = crHandPoint
     Alignment = taCenter
     AutoSize = False
-    Caption = 'http://sourceforge.net/projects/orwelldevcpp/'
+    Caption = 'https://devcpp.gitee.io'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clBlue
     Font.Height = -11

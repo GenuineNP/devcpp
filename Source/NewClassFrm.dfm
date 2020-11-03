@@ -41,17 +41,17 @@ object NewClassForm: TNewClassForm
   object btnBrowseCpp: TSpeedButton
     Left = 412
     Top = 224
-    Width = 23
-    Height = 22
-    Caption = '...'
+    Width = 24
+    Height = 24
+    Caption = '. . .'
     OnClick = btnBrowseCppClick
   end
   object btnBrowseH: TSpeedButton
     Left = 412
-    Top = 252
-    Width = 23
-    Height = 22
-    Caption = '...'
+    Top = 254
+    Width = 24
+    Height = 24
+    Caption = '. . .'
     OnClick = btnBrowseCppClick
   end
   object lblArguments: TLabel

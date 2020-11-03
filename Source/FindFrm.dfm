@@ -65,8 +65,8 @@ object FindForm: TFindForm
     TabIndex = 0
     OnChange = FindTabsChange
     object lblFind: TLabel
-      Left = 8
-      Top = 29
+      Left = 11
+      Top = 24
       Width = 67
       Height = 16
       Caption = '&Text to find:'
@@ -128,27 +128,27 @@ object FindForm: TFindForm
       Caption = '  Direction:  '
       TabOrder = 3
       object rbBackward: TRadioButton
-        Left = 8
-        Top = 42
-        Width = 121
-        Height = 17
-        Caption = '&Backward'
-        TabOrder = 0
-      end
-      object rbForward: TRadioButton
-        Left = 8
+        Left = 14
         Top = 18
         Width = 121
         Height = 17
-        Caption = '&Forward'
+        Caption = '&Upward'
+        TabOrder = 0
+      end
+      object rbForward: TRadioButton
+        Left = 14
+        Top = 41
+        Width = 121
+        Height = 17
+        Caption = '&Downward'
         Checked = True
         TabOrder = 1
         TabStop = True
       end
     end
     object grpWhere: TGroupBox
-      Left = 169
-      Top = 118
+      Left = 166
+      Top = 120
       Width = 152
       Height = 98
       Caption = '  Where:  '

@@ -215,7 +215,7 @@ procedure TSynURIOpener.NewMouseCursor(Sender: TObject;
   const aLineCharPos: TBufferCoord; var aCursor: TCursor);
 var
   TokenType, Start: Integer;
-  Token: AnsiString;
+  Token: String;  //AnsiString;
   Attri: TSynHighlighterAttributes;
 begin
   FControlDown := IsControlPressed;
@@ -248,7 +248,7 @@ procedure TSynURIOpener.NewMouseUp(Sender: TObject; Button: TMouseButton;
 var
   ptLineCol: TBufferCoord;
   TokenType, Start: Integer;
-  Token: AnsiString;
+  Token: String;  //AnsiString;
   Attri: TSynHighlighterAttributes;
 begin
   if (Button <> mbLeft) or (FCtrlActivatesLinks and not FControlDown) or

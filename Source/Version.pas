@@ -32,7 +32,7 @@ const
 
   // exe properties
   DEVCPP = 'Dev-C++';
-  DEVCPP_VERSION = '5.14';
+  DEVCPP_VERSION = '5.15';
 
   // delimiters
   DEV_INTERNAL_OPEN = '$__DEV_INTERNAL_OPEN';
@@ -53,8 +53,8 @@ const
   // themes
   DEV_GNOME_THEME = 'Gnome';
   DEV_NEWLOOK_THEME = 'New Look';
-  DEV_BLUE_THEME = 'Blue';
-  DEV_INTERNAL_THEME = 'New Look';
+  DEV_MODERM_THEME = 'MODERM';
+  DEV_INTERNAL_THEME = 'MODERM';
 
   LANGUAGE_DIR = 'Lang' + pd;
   ICON_DIR = 'Icons' + pd;
@@ -98,7 +98,7 @@ const
   WINDRES_PROGRAM = 'windres.exe';
   GPROF_PROGRAM = 'gprof.exe';
   PACKMAN_PROGRAM = 'packman.exe';
-  CLEAN_PROGRAM = 'rm.exe'; // cannot use del, it doesn't have a quiet mode
+  CLEAN_PROGRAM = 'del /q'; //or 'rm.exe';  //delete file in quiet mode
 
   // File dialog filters
   FLT_ALLFILES = 'All files (*.*)|*.*|';

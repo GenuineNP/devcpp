@@ -23,31 +23,29 @@
       <p align="left">使用高级语言编程时，我们通常使用一个集成开发环境（Integrated Developing Enviroment，简称IDE）来进行编辑、编译、运行和调试工作。对于 C 和 C++ 语言，常用的集成开发环境有：很早的 Turbo C 和 Turbo C++（这两个太旧了，不推荐使用）、复杂而庞大的Microsoft Visual Studio（有6.0，7.1，2003，2005，2008，2013，2015等多个版本），免费而简洁的 Dev-C++ 和 Code::Block 等等。在此简要介绍 Dev-C++ 的安装和使用方法。 </p>
       <h2><span class="STYLE2">1、安装与启动</span> </h2>
       <p>Dev-C++ （有时候也称为 Dev-Cpp）是一个免费软件，最早是由 BloodShed 公司开发的，在版本 4.9.2 之后该公司停止开发并开放源代码。然后由 Orwell 接手进行维护，陆续开发了几个版本，后来也有其他开发人员陆续参与开发维护并发布了一些分支版本。</p>
-      <p>建议读者从 Dev-C++ 中文版网站（<a href="https://banzhusoft.github.io/devcpp-cn/">https://banzhusoft.github.io/devcpp-cn/</a>）下载最新版本（2020年7月）：<strong>Dev-C++ 5.14中文版</strong>。</p>
+      <p>建议读者从 Dev-C++ 中文版网站（<a href="https://devcpp.gitee.io/">https://devcpp.gitee.io/</a>）下载最新版本（2020年9月）：<strong>Dev-C++ 5.15中文版</strong>。</p>
       <p>下载之后开始<strong>安装</strong>。安装过程很简单，按照对话框的操作提示执行即可，在此略过不叙。 </p>
       <p>安装完毕之后，双击 Windows 桌面上的 Dev-C++ 图标，以启动Dev-C++。工作界面如下图所示。</p>
-      <p><img src="images-cn/dev-start.png" alt="devcpp" width="903" height="541" /></p>
+      <p><img src="images-cn/dev-start.png" alt="devcpp" width="857" height="636" /></p>
       <p>界面上依次显示有菜单栏和两行工具栏。其中第一行工具栏是平时使用最多的，其各个按钮的功能如下图所示：</p>
-      <p><img src="images-cn/dev-toolbar1.png" alt="toolbar1" width="954" height="114" /></p>
+      <p><img src="images-cn/dev-toolbar1.png" alt="toolbar1" width="982" height="126" /></p>
       <h2><span class="STYLE2">2、编辑功能</span> </h2>
       <p>点击工具栏上的“<strong>新建源代码</strong>”按钮（或者按快捷键 Ctrl+N），就可以新建一个空白的源代码文件，并开始编写程序了。</p>
       <p>点击工具栏上的“<strong>打开</strong>”按钮（或按快捷键 Ctrl+O），就可以打开一个原有的源代码文件或工程文件，进行编辑。</p>
-      <p>点击工具栏上的“<strong>保存</strong>”按钮（快捷键 Ctrl+S），即可保存当前编辑的文件，默认文件扩展名为“.cpp”。</p>
-      <p>点击工具栏上的“<strong>关闭</strong>”或“<strong>关闭全部</strong>”按钮，即可关闭当前编辑的文件或当前已打开的所有文件。</p>
+      <p>点击工具栏上的“<strong>保存</strong>”按钮（快捷键 Ctrl+S），即可保存当前编辑的文件，默认文件扩展名为“.cpp”。需要注意的是，默认情况下每次保存文件时，Dev-C++ 都会自动对当前文件按照基本书写规范进行格式化（整理文件中的空行、空格、括号和缩进）。</p>
+      <p>点击工具栏上的“<strong>关闭</strong>”按钮，即可关闭当前编辑的文件。</p>
       <p>在 Dev-C++ 中编辑文件时，基本操作与其它文本编辑器是完全相同的。不过，除了基本的文本编辑功能之外，Dev-C++还提供了以下一些用于程序编辑的方便功能： </p>
       <p>（1）点击“<strong>插入片段</strong>”按钮，可以插入一些常用的代码片段。建议用户在编辑每个源文件时，可以插入“文件头注释块”和“C++ main”，以快速开始编辑工作。</p>
-      <p>（2）Dev-C++ 包含有代码格式化工具“Astyle”，可以帮助用户快速地调整源代码的缩进格式。只要点击菜单 “AStyle” 下的 “<strong>格式化当前文件</strong>”（快捷键 Ctrl+Shift+A），就可以按照选定的格式对当前文件进行格式化（自动整理括号和缩进）。（这一操作非常简单，但是能给用户带来很多方便。）</p>
+      <p>（2）编辑区左边的行号区中显示了代码中的块状结构，可供用户看出代码中的复合语句层次。</p>
       <p>（3）编辑窗口左边的“符号和类”窗格中显示了当前程序中定义的函数、全局变量、结构体和类等信息，方便用户掌握整个程序的结构。</p>
       <p>例如，某个编辑状态如下：</p>
-      <p align="center"><img src="images-cn/dev-edit.png" alt="edit" width="903" height="619" /></p>
+      <p align="center"><img src="images-cn/dev-edit.png" alt="edit" width="857" height="728" /></p>
       <h2><span class="STYLE3"><strong>3、编译与运行</strong><strong> </strong></span></h2>
       <p>程序编写完毕，就可以进行编译了。 </p>
-      <p>首先要设置编译器。 点击Dev-C++工具栏上的“编译器配置”下拉框，就可以看到多种编译器的配置方案并从中选择（见下图）。 </p>
-      <p align="center"><img src="images-cn/dev-compiler.png" alt="compiler" width="967" height="212" /></p>
-      <p>上图中显示，所安装的编译器是 TDM-GCC 9.2.0（这是一个免费开源的C/C++编译器）。选择时主要是考虑两个因素：1、根据自己所安装的Windows系统是 64 位还是 32 位而选择含有“64位”或“32位”的配置方案；2、在准备进行调试时只能选择含有“调试”的方案，只有对于大型程序才需要改用含有“性能分析”和“发行”的方案。 </p>
+      <p>首先要设置编译器。 点击Dev-C++工具栏上的“编译器配置”下拉框，就可以看到多种编译器的配置方案并从中选择。 Dev-C++ 默认安装的编译器是 TDM-GCC 9.2.0（这是一个免费开源的C/C++编译器）。选择时主要是考虑两个因素：1、根据自己所安装的Windows系统是 64 位还是 32 位而选择含有“64位”或“32位”的配置方案；2、在准备进行调试时只能选择含有“调试”的方案，只有对于大型程序才需要改用含有“性能分析”和“发行”的方案。 </p>
       <p>对于大部分用户来说，使用默认的“<strong>TDM-GCC 9.2.0 32位 调试</strong>”方案即可。</p>
       <p>程序编写完成之后，点击工具栏上的“<strong>编译</strong>”按钮，就可以开始编译，稍等片刻就会完成编译。如果编译出错，则在编辑器下方显示出编译信息面板，其中列出了编辑过程中的出错信息（Dev-C++ 自动地把出错信息翻译成了中文！）。用户需要根据出错信息对程序进行修改。（<a href="FreqCompileQues.htm">常见编译错误解析</a>） </p>
-      <p><img src="images-cn/dev-compiling.png" alt="compiling" width="903" height="654" /></p>
+      <p align="center"><img src="images-cn/dev-compiling.png" alt="compiling" width="857" height="728" /></p>
       <p>编译成功之后可以点击工具栏上的“<strong>运行</strong>”按钮，就可以运行程序。 </p>
       <p>有时为了省事，可以直接点击工具栏上的“<strong>编译运行</strong>”按钮。</p>
       <h2><span class="STYLE2">4、Dev-C++ 中的程序调试方法</span></h2>
@@ -62,9 +60,9 @@
       <p>程序调试时，就开始运行（通常会弹出一个终端窗口）。运行到到程序中的第一条可执行语句就暂停。这时候最好是手工调整一下 Dev-C++ 窗口的大小和位置，以便能够同时看到 Dev-C++ 窗口和终端窗口（以方便后续操作）。 </p>
       <p><strong>2. 调试过程中的操作</strong><strong> </strong></p>
       <p>启动调试之后， Dev-C++ 窗口下半部分时会自动显示调试面板（下图），可以用鼠标点击按钮或按快捷键执行调试操作。</p>
-      <p align="center"><img src="images-cn/dev-debug.png" alt="debug" width="903" height="713" /></p>
-      <p>其中重要的是<strong><u>“下一步”按钮（F7）</u></strong>和<strong><u>“单步进入”按钮（F8）</u></strong>。在简单的只含有一个 main 函数的程序中，这两个按钮的功能是相同的，没有区别。而在含有多个自定义函数的程序中，这两个功能有较大的区别：“<strong>下一步</strong>(F7)”是指把当前语句作为一步执行完毕，而“<strong>单步进入</strong>(F8)”是指如果当前语句中含有函数调用则追踪进入到函数中去执行。</p>
-      <p>如果调用函数是标准函数或你认为无误的函数，就用“下一步”执行（以免追踪进入），对于怀疑有问题的函数才用“单步进入”去追踪。如果一不小心进入了标准函数（例如 printf 函数或“cout &lt;&lt; endl;”输出），则点击“<strong>跳过函数</strong>”以返回。</p>
+      <p align="center"><img src="images-cn/dev-debug.png" alt="debug" width="879" height="734" /></p>
+      <p>其中重要的是<strong><u>“下一行”按钮（F7）</u></strong>和<strong><u>“单步进入”按钮（F8）</u></strong>。在简单的只含有一个 main 函数的程序中，这两个按钮的功能是相同的，没有区别。而在含有多个自定义函数的程序中，这两个功能有较大的区别：“<strong>下一步</strong>(F7)”是指把当前语句作为一步执行完毕，而“<strong>单步进入</strong>(F8)”是指如果当前语句中含有函数调用则追踪进入到函数中去执行。</p>
+      <p>如果调用函数是标准函数或你认为无误的函数，就用“下一步”执行（以免追踪进入），对于怀疑有问题的函数才用“单步进入”去追踪。如果一不小心进入了标准函数（例如 printf 函数或“cout &lt;&lt; endl;”输出），则点击“<strong>跳出函数</strong>”以返回。</p>
       <p><span class="STYLE4">（一个常见问题：有时候在 Dev-C++ 中调试 C++ 程序时，遇到形如“cout &lt;&lt; endl;”这样的语句就会卡住无法继续。这时请停止调试，然后点击菜单“工具”下的“编译选项”，在当前选定的编译器配置方案下，在“代码生成/优化”下的“代码优化”标签页中，为“优化级别(-O)”选择一个合理的值，例如“Debug(g)”或“Med”都可以。确定。然后再重新编译和调试。） </span></p>
       <p><strong>3. 查看变量的值</strong> </p>
       <p>开始调试后，常常有必要查看变量的变化情况，因此需要查看变量的值。在默认情况下，如果用鼠标悬浮在当前运行的代码中的变量上方，则会自动出现一个小悬浮窗口，显示出该变量当前的值。</p>

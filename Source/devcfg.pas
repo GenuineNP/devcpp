@@ -226,11 +226,14 @@ type
   // Options for AStyle
   TdevFormatter = class(TPersistent)
   private
+    fAutoFormat: Boolean;
     fBracketStyle: Integer;
     fIndentStyle: Integer;
     fTabWidth: Integer;
     fMaxLineLength: Integer;
     fModifyMaxLineLength: Boolean;
+    fAdjustLines: Boolean;
+    fAdjustSpaces: Boolean;
     fIndentClasses: Boolean;
     fIndentSwitches: Boolean;
     fIndentCases: Boolean;
@@ -251,11 +254,14 @@ type
     function GetVersion: String;
     function GetFullCommand: String;
   published
+    property AutoFormat: Boolean read fAutoFormat write fAutoFormat;
     property BracketStyle: Integer read fBracketStyle write fBracketStyle;
     property IndentStyle: Integer read fIndentStyle write fIndentStyle;
     property TabWidth: Integer read fTabWidth write fTabWidth;
     property MaxLineLength: Integer read fMaxLineLength write fMaxLineLength;
     property ModifyMaxLineLength: Boolean read fModifyMaxLineLength write fModifyMaxLineLength;
+    property AdjustLines: Boolean read fAdjustLines write fAdjustLines;
+    property AdjustSpaces: Boolean read fAdjustSpaces write fAdjustSpaces;
     property IndentClasses: Boolean read fIndentClasses write fIndentClasses;
     property IndentSwitches: Boolean read fIndentSwitches write fIndentSwitches;
     property IndentCases: Boolean read fIndentCases write fIndentCases;
@@ -775,13 +781,19 @@ begin
 //    end;
 
     //Now, pick "32-bit debug" as default.
-    for I := 0 to devCompilerSets.Count - 1 do begin
-      if ContainsText(devCompilerSets[i].Name, '32') and ContainsText(devCompilerSets[i].Name, 'debug') then begin
-        devCompilerSets.DefaultSetIndex := i;
-        break;
-      end;
-    end;
-
+//    if IsWindows64 then begin
+//      for I := 0 to devCompilerSets.Count - 1 do
+//        if ContainsText(devCompilerSets[i].Name, '64') and ContainsText(devCompilerSets[i].Name, 'debug') then begin
+//          devCompilerSets.DefaultSetIndex := i;
+//          break;
+//        end;
+//    end else begin
+      for I := 0 to devCompilerSets.Count - 1 do
+        if ContainsText(devCompilerSets[i].Name, '32') and ContainsText(devCompilerSets[i].Name, 'debug') then begin
+          devCompilerSets.DefaultSetIndex := i;
+          break;
+        end;
+//    end;
     devCompilerSets.SaveSets; // save everything to disk
   end;
 
@@ -2705,11 +2717,14 @@ end;
 
 procedure TdevFormatter.SettoDefaults;
 begin
+  fAutoFormat := true;
   fBracketStyle := 2; // Java
   fIndentStyle := 2; // Tabs
   fTabWidth := 4;
-  fModifyMaxLineLength := False;
-  fMaxLineLength := 80;
+  fModifyMaxLineLength := true;
+  fMaxLineLength := 120;
+  fAdjustLines := True;
+  fAdjustSpaces := True;
   fIndentClasses := True;
   fIndentSwitches := True;
   fIndentCases := False;
@@ -2740,6 +2755,17 @@ begin
   // Add line length
   if fModifyMaxLineLength then
     Result := Result + ' --max-code-length=' + IntToStr(fMaxLineLength);
+  // Adjust lines and spaces
+  if fAdjustLines then begin
+    Result := Result + ' --break-one-line-headers';   // if () aaa
+    Result := Result + ' --break-blocks';             // empty lines
+  end;
+  if fAdjustSpaces then begin
+    Result := Result + ' --pad-oper';                 //add space around identifier
+    Result := Result + ' --pad-header';               //add space between if，while and (
+    Result := Result + ' --align-pointer=name';       //*, ^  close to identifier
+    Result := Result + ' --align-reference=name';     //&   close to identifier
+  end;
 
   // Add indentation options
   if fIndentClasses then
@@ -2772,19 +2798,118 @@ begin
 end;
 
 function TdevFormatter.FormatMemory(Editor: TEditor; const OverrideCommand: String): String;
+const
+	SOURCE = 0;  //SOURCE code
+  LINE = 1;    //LINE comment
+  BLOCK = 2;   //BLOCK Comment
+  CSTRING = 3; //C STRING
 var
   FileName: String;
   DummyEditor: TSynEdit;
+
+  i, j, k, n, len: integer;
+  layer: integer;   //layers of "{"
+  emptyline: boolean;
+  state: integer;
+	ch1, ch2: char ;	//two chars to judge state
 begin
   // Store file backup in AStyle dir and format that file
   FileName := devDirs.Exec + fAStyleDir + ExtractFileName(Editor.FileName);
   Editor.Text.Lines.SaveToFile(FileName);
-  FormatFile(FileName, OverrideCommand);
+  FormatFile(FileName, OverrideCommand);   //Format the file with AStyle
 
   // Load formatted file into dummy
   DummyEditor := TSynEdit.Create(nil);
   try
     // Use replace selection trick to preserve undo list
+    DummyEditor.Lines.LoadFromFile(FileName);  //load file
+
+    //do some replaces and add some empty lines
+    state := SOURCE;
+    //replace '#include<' with '#include <', replace '#include"' with '#include "'
+    //n := min(e.Text.Lines.Count, 100);
+    n := DummyEditor.Lines.Count;
+    layer := 0;   //number of left parenthesis mark {
+    ch1 := #0;
+    for i := 0 to n-1 do begin
+      if (fAdjustspaces and (pos('#include', DummyEditor.Lines[i])> 0)) then begin
+        DummyEditor.Lines[i] := stringreplace (DummyEditor.Lines[i], '#include<', '#include <', []);
+        DummyEditor.Lines[i] := stringreplace (DummyEditor.Lines[i], '#include"', '#include "', []);
+      end;
+
+      if (fAdjustLines) then begin
+        len := length(DummyEditor.Lines[i]);
+        if (len = 0) then
+          emptyline := true;  //here has a empty line
+        j := 1;
+        while (j <= len) do begin
+          ch2 := DummyEditor.Lines[i][j];   //read one new char
+          if ((state = SOURCE) and (ch1 = #47) and (ch2 = #42)) then // get /*, SOURCE -> BLOCK comment
+            state := BLOCK
+          else if ((state = BLOCK) and (ch1 = #42) and (ch2 = #47)) then begin // get */, BLOCK -> SOURCE
+            state := SOURCE;
+            inc(j);   //j++
+            ch2 := DummyEditor.Lines[i][j];
+            ch1 := ch2; //根据这两个字符判断并进行了一次状态转换。往后读取一个字符
+            //continue;	//块注释末尾字符不需打印
+          end else if ((state = SOURCE) and (ch1 = #42) and (ch2 = #42)) then begin // // 源代码->行注释
+            state := LINE;
+            ch1 := #0;
+            state := SOURCE;
+            break;  //jump over this line
+          end else if ((state = LINE) and (ch2 = #13)) then begin	//行注释 ->源代码
+            state := SOURCE;
+            ch1 := ch2;	//当前的 ch1 不需要打印，而需要打印当前的 ch2
+            inc(j);
+            ch2 := DummyEditor.Lines[i][j];	//往后多读取一个字符
+          end else if ((state = SOURCE) and (ch1 <> #92) and (ch2 = #34)) then//源代码 -> 字符串，要排除 \"
+            state := CSTRING
+          else if ((state = CSTRING) and (ch1 <> #92) and (ch2 = #34) ) then // " but not \"字符串 ->源代码，要排除 \"
+            state := SOURCE;
+
+          //状态为 SOURCE 或 CSTRING时，则把读得的字符输出到屏幕和文件
+          //if (state = SOURCE || state = STRING ) then begin
+          //	cout.put(ch1);
+          //	out.put(ch1);
+          //end
+          if ((state = SOURCE) and (ch2 = #123)) then begin //'{'   //e.Text.Lines[i][j]
+            layer := layer + 1;
+            if ((i > 0) and (layer = 1) and (not emptyline)) then begin //only one layer of "{"
+              k := i - 1;   //upward one line
+              if (k > 0) and (j = 1) then    //if "{" located at line head, then upward one more line
+                dec(k);
+              // upward, find no-comment line
+              if (pos('*/', DummyEditor.Lines[k])> 0) then  // block comments
+                while ((k > 0) and (pos('/*', DummyEditor.Lines[k]) <= 0)) do
+                  dec(k);    // find the line contains /*
+              if (pos('/*', DummyEditor.Lines[k]) > 0) then //block comment beginning
+                if (k > 0) then  // not line 0
+                  dec(k)      // upward one line from block comments
+                else begin          // line 0 contains "/*"
+                  k := i - 1;    //jump to line i - 1
+                  if (k > 0) and (j = 1) then
+                    dec (k);
+                end;
+              while ((k > 0) and (pos('//', DummyEditor.Lines[k])> 0)) do  //line comments
+                dec(k); //upward jump over line comments
+              //e.Text.CaretX := 1;
+              //e.Text.CaretY := k;
+              //e.InsertString (#13#10, true);
+              DummyEditor.Lines [k] := DummyEditor.Lines[k] + #13#10 ;  //add emptyline
+            end;
+          end;
+          if ((state = SOURCE) and (ch2 = #125)) then begin //'}'
+            layer := layer - 1;
+            if (layer = 0) then
+              emptyline := False;   //reset empty lines
+          end;
+
+          ch1 := ch2;
+          inc(j);
+        end;  //while column j
+      end; //if (fAdjustLines)
+    end; // for line i
+    DummyEditor.Lines.SaveToFile(FileName);
     DummyEditor.Lines.LoadFromFile(FileName);
 
     // Use replace all functionality

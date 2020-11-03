@@ -41,8 +41,8 @@ type
     MenuImages_NewLook: TImageList;
     ProjectImage_NewLook: TImageList;
     GutterImages: TImageList;
-    MenuImages_Blue: TImageList;
-    ProjectImage_Blue: TImageList;
+    MenuImages_Modern: TImageList;
+    ProjectImage_Modern: TImageList;
     ClassImages: TImageList;
     procedure DataModuleCreate(Sender: TObject);
     procedure DataModuleDestroy(Sender: TObject);

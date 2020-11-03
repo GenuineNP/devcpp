@@ -285,6 +285,9 @@ begin
   lblAssocDesc.Caption := Lang[ID_ENV_FASSDESC];
 end;
 
+
+
+
 procedure TEnviroForm.btnHelpClick(Sender: TObject);
 begin
   OpenHelpFile('index.htm');
@@ -417,6 +420,7 @@ begin
   if (vleExternal.RowCount > 1) and (vleExternal.Row > 0) then
     vleExternal.DeleteRow(vleExternal.Row);
 end;
+
 
 procedure TEnviroForm.cbUIfontDrawItem(Control: TWinControl; Index: Integer; Rect: TRect; State: TOwnerDrawState);
 begin

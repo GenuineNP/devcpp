@@ -489,6 +489,8 @@ begin
   FindSelAll.Caption := Lang[ID_ITEM_SELECTALL];
 end;
 
+
+
 procedure TFindForm.FormCreate(Sender: TObject);
 begin
   LoadText;

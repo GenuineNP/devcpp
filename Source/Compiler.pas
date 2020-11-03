@@ -296,7 +296,7 @@ begin
   Writeln(F, 'BIN      = ' + GenMakePath1(ExtractRelativePath(Makefile, fProject.Executable)));
   Writeln(F, 'CXXFLAGS = $(CXXINCS) ' + fCppCompileParams);
   Writeln(F, 'CFLAGS   = $(INCS) ' + fCompileParams);
-  Writeln(F, 'RM       = ' + CLEAN_PROGRAM + ' -f'); // TODO: use del or rm?
+  Writeln(F, 'RM       = ' + CLEAN_PROGRAM); // "del /q" or "rm.exe -f"
 
   // This needs to be put in before the clean command.
   if fProject.Options.typ = dptDyn then begin

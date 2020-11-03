@@ -231,11 +231,15 @@ end;
 procedure TLangForm.cmbIconsChange(Sender: TObject);
 begin
   if cmbIcons.ItemIndex = 1 then
-    tbExample.Images := dmMain.MenuImages_Gnome
-  else if cmbIcons.ItemIndex = 2 then
-    tbExample.Images := dmMain.MenuImages_Blue
+    tbExample.Images := dmMain.MenuImages_NewLook
   else
-    tbExample.Images := dmMain.MenuImages_NewLook;
+    tbExample.Images := dmMain.MenuImages_Modern
+//  if cmbIcons.ItemIndex = 1 then
+//    tbExample.Images := dmMain.MenuImages_Gnome
+//  else if cmbIcons.ItemIndex = 2 then
+//    tbExample.Images := dmMain.MenuImages_Modern
+//  else
+//    tbExample.Images := dmMain.MenuImages_NewLook;
 end;
 
 procedure TLangForm.cmbFontDrawItem(Control: TWinControl; Index: Integer; Rect: TRect; State: TOwnerDrawState);

@@ -53,6 +53,9 @@ type
     memFullCommand: TMemo;
     spinMaxLineLength: TSpinEdit;
     chkMaxLineLength: TCheckBox;
+    chkAutoFormat: TCheckBox;
+    chkAdjustSpaces: TCheckBox;
+    chkAdjustLines: TCheckBox;
     procedure btnCancelClick(Sender: TObject);
     procedure btnOkClick(Sender: TObject);
     procedure btnHelpClick(Sender: TObject);
@@ -61,6 +64,7 @@ type
     procedure CommandChange(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormActivate(Sender: TObject);
+    procedure lblPoweredByClick(Sender: TObject);
   private
     fCreating: Boolean;
     fValid: Boolean;
@@ -89,6 +93,7 @@ begin
   SaveSettings;
 end;
 
+
 procedure TFormatterOptionsForm.btnHelpClick(Sender: TObject);
 begin
   if fValid then
@@ -108,11 +113,14 @@ begin
   Font.Size := devData.InterfaceFontSize;
 
   Caption := Lang[ID_FORMATTER_WINDOW];
+  chkAutoFormat.Caption := Lang[ID_FORMATTER_AUTOFORMAT];
   grpOptions.Caption := Lang[ID_FORMATTER_OPTIONS];
   lblBracketStyle.Caption := Lang[ID_FORMATTER_BRACKET];
   lblIndentStyle.Caption := Lang[ID_FORMATTER_INDENT];
   lblTabWidth.Caption := Lang[ID_FORMATTER_TABWIDTH];
   chkMaxLineLength.Caption := Lang[ID_FORMATTER_MAXLINELENGTH];
+  chkAdjustLines.Caption := Lang[ID_FORMATTER_LINES];
+  chkAdjustSpaces.Caption := Lang[ID_FORMATTER_SPACES];
   lblIndentParts.Caption := Lang[ID_FORMATTER_INDENTPARTS];
   chkClasses.Caption := Lang[ID_FORMATTER_CLASSES];
   chkSwitches.Caption := Lang[ID_FORMATTER_SWITCHES];
@@ -180,6 +188,9 @@ end;
 procedure TFormatterOptionsForm.LoadSettings;
 begin
   with devFormatter do begin
+
+    chkAutoFormat.Checked := AutoFormat;
+
     // Set bracket style
     cmbBracketStyle.ItemIndex := BracketStyle;
 
@@ -192,6 +203,10 @@ begin
     // Set max line length
     chkMaxLineLength.Checked := ModifyMaxLineLength;
     spinMaxLineLength.Value := MaxLineLength;
+
+    // Adjust lines and spaces
+    chkAdjustLines.Checked := AdjustLines;
+    chkAdjustSpaces.Checked := AdjustSpaces;
 
     // Set indentation options
     chkClasses.Checked := IndentClasses;
@@ -208,6 +223,7 @@ end;
 procedure TFormatterOptionsForm.SaveSettings;
 begin
   with devFormatter do begin
+    AutoFormat := chkAutoFormat.Checked;
     // Set bracket style
     BracketStyle := cmbBracketStyle.ItemIndex;
 
@@ -220,6 +236,10 @@ begin
     // Set max line length
     ModifyMaxLineLength := chkMaxLineLength.Checked;
     MaxLineLength := spinMaxLineLength.Value;
+
+    // Adjust lines and spaces
+    AdjustLines := chkAdjustLines.Checked;
+    AdjustSpaces := chkAdjustSpaces.Checked;
 
     // Set indentation options
     IndentClasses := chkClasses.Checked;
@@ -285,7 +305,19 @@ begin
       Result := Result + ' --max-code-length=' + IntToStr(spinMaxLineLength.MinValue);
   end;
 
-  // Add indentation options
+
+  if chkAdjustLines.Checked then begin
+    Result := Result + ' --break-one-line-headers';   // if () aaa
+    //Result := Result + ' --break-blocks';             // empty lines
+  end;
+  if chkAdjustSpaces.Checked then begin
+    Result := Result + ' --pad-oper';                 //add space around identifier
+    Result := Result + ' --pad-header';               //add space between if£¬while and (
+    Result := Result + ' --align-pointer=name';       //*, ^  close to identifier
+    Result := Result + ' --align-reference=name';     //&   close to identifier
+  end;
+
+   // Add indentation options
   if chkClasses.Checked then
     Result := Result + ' --indent-classes';
   if chkSwitches.Checked then
@@ -300,6 +332,13 @@ begin
     Result := Result + ' --indent-preprocessor';
 
   Result := TrimLeft(Result);
+end;
+
+procedure TFormatterOptionsForm.lblPoweredByClick(Sender: TObject);
+begin
+  ShellExecute(GetDesktopWindow(), 'open',
+    PChar('http://astyle.sourceforge.net/'), nil, nil,
+    SW_SHOWNORMAL);
 end;
 
 procedure TFormatterOptionsForm.FormClose(Sender: TObject;

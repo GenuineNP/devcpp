@@ -126,7 +126,6 @@ type
     RunBtn: TToolButton;
     CompileAndRunBtn: TToolButton;
     DebugBtn: TToolButton;
-    RebuildAllBtn: TToolButton;
     tbProject: TToolBar;
     AddToProjectBtn: TToolButton;
     RemoveFromProjectBtn: TToolButton;
@@ -355,7 +354,6 @@ type
     ProjectView: TTreeView;
     LeftClassSheet: TTabSheet;
     ClassBrowser: TClassBrowser;
-    AddWatchBtn: TButton;
     FloatingPojectManagerItem: TMenuItem;
     actSaveProjectAs: TAction;
     SaveprojectasItem: TMenuItem;
@@ -367,7 +365,6 @@ type
     ToolClassesItem: TMenuItem;
     LeftDebugSheet: TTabSheet;
     DebugView: TTreeView;
-    StepOverBtn: TButton;
     DebugStartPanel: TPanel;
     DDebugBtn: TSpeedButton;
     StopExecBtn: TSpeedButton;
@@ -388,8 +385,6 @@ type
     actGotoDeclEditor: TAction;
     actGotoImplEditor: TAction;
     ToolButton2: TToolButton;
-    ProfileBtn: TToolButton;
-    ProfilingInforBtn: TToolButton;
     CompResGroupBox: TPanel;
     LogOutput: TMemo;
     N64: TMenuItem;
@@ -402,21 +397,15 @@ type
     //actGoto: TAction;
     TEXItem: TMenuItem;
     actExportTex: TAction;
-    NextLineBtn: TButton;
-    IntoLineBtn: TButton;
     lblSendCommandGdb: TLabel;
     edGdbCommand: TComboBox;
     DebugOutput: TMemo;
     DebugSendPanel: TPanel;
-    ViewCPUBtn: TButton;
     EvaluateInput: TComboBox;
     lblEvaluate: TLabel;
     EvalOutput: TMemo;
-    SkipFuncBtn: TButton;
     actSkipFunction: TAction;
-    IntoInsBtn: TButton;
     actNextIns: TAction;
-    NextInsBtn: TButton;
     actStepIns: TAction;
     MsgPasteItem: TMenuItem;
     actMsgCopy: TAction;
@@ -441,12 +430,9 @@ type
     ToolButton3: TToolButton;
     SplitterBottom: TSplitter;
     N76: TMenuItem;
-    N12: TMenuItem;
     Abortcompilation1: TMenuItem;
     oggleBreakpoint1: TMenuItem;
-    N18: TMenuItem;
     StopBtn: TToolButton;
-    ToolButton5: TToolButton;
     actRevSearchAgain: TAction;
     SearchAgainBackwards1: TMenuItem;
     actDeleteLine: TAction;
@@ -493,7 +479,6 @@ type
     actSwapEditor: TAction;
     N57: TMenuItem;
     Movetootherview1: TMenuItem;
-    CloseAllBtn: TToolButton;
     N14: TMenuItem;
     MoveToOtherViewItem: TMenuItem;
     SwapHeaderSourceItem: TMenuItem;
@@ -543,6 +528,14 @@ type
     oggleBookmarks1: TMenuItem;
     GotoPrevBookmark1: TMenuItem;
     GotoNextBookmark1: TMenuItem;
+    NextLineBtn: TSpeedButton;
+    IntoLineBtn: TSpeedButton;
+    StepOverBtn: TSpeedButton;
+    SkipFuncBtn: TSpeedButton;
+    NextInsBtn: TSpeedButton;
+    IntoInsBtn: TSpeedButton;
+    AddWatchBtn: TSpeedButton;
+    ViewCPUBtn: TSpeedButton;
     //ToggleBookmarks: TMenuItem;
     //GotoPrevBookmark1: TMenuItem;
     //GotoNextBookmark1: TMenuItem;
@@ -814,7 +807,6 @@ type
     procedure actToggleBookmarkExecute(Sender: TObject);
     procedure actNextBookmarkExecute(Sender: TObject);
     procedure actPrevBookmarkExecute(Sender: TObject);
-
 
   private
     fPreviousHeight: integer; // stores MessageControl height to be able to restore to previous height
@@ -2212,10 +2204,15 @@ end;
 procedure TMainForm.actSaveExecute(Sender: TObject);
 var
   e: TEditor;
+  i, n: integer;
 begin
   e := fEditorList.GetEditor;
-  if Assigned(e) then
+  if Assigned(e) then begin
+    if (e.Text.Modified and devFormatter.AutoFormat) then
+      actFormatCurrentFileExecute(Sender); //automatically format current file
     e.Save;
+  end;
+
   UpdateAppTitle;
 end;
 
@@ -2224,8 +2221,11 @@ var
   e: TEditor;
 begin
   e := fEditorList.GetEditor;
-  if Assigned(e) then
+  if Assigned(e) then begin
+    if (e.Text.Modified and devFormatter.AutoFormat) then
+      actFormatCurrentFileExecute(Sender); //automatically format current file
     e.SaveAs;
+  end;
   UpdateAppTitle;
 end;
 
@@ -2632,10 +2632,9 @@ begin
         UpdateClassBrowsing;
         ScanActiveProject;
       end;
-
-      //translation code snippets to UI current lanugage.
-      TransMenuMacros(4, true); //"4" means only deal with code snippets.
     end;
+    //translation code snippets to UI current lanugage.
+    TransMenuMacros(4, true); //"4" means only deal with code snippets.
   finally
     Free;
   end;
@@ -3074,6 +3073,7 @@ begin
       end;
     ctFile: begin
         e := fEditorList.GetEditor; // always succeeds if ctFile is returned
+        actSaveExecute(Self); //save file, and automaticlly format.
         if not e.Save then
           Exit;
         fCompiler.SourceFile := e.FileName;
@@ -3171,6 +3171,7 @@ begin
   if not PrepareForCompile then
     Exit;
   //screen.Cursor := crhourglass; //crAppStart;
+
   fCompiler.Compile;
   //fCompiler.Run;
 
@@ -3199,6 +3200,7 @@ begin
     Exit;
 
   fCompSuccessAction := csaRun;
+  actSaveExecute(Sender);
   fCompiler.Compile;
 end;
 
@@ -3438,9 +3440,7 @@ begin
         Lang.SetLang(devData.Language);
         LoadText;
       end;
-      //translate code snippets, custom tools and compilerset to UI language.
-      TransMenuMacros(7, true);
-      UpdateCompilerList;
+
 
       // Load new icons, also only if we have to
       if devData.ThemeChange then
@@ -3450,6 +3450,9 @@ begin
       // Rebuild recent file list (max count could have changed
       dmMain.RebuildMRU;
     end;
+    //translate code snippets, custom tools and compilerset to UI language.
+    TransMenuMacros(7, true);
+    UpdateCompilerList;
   finally
     Close;
   end;
@@ -4242,6 +4245,19 @@ begin
     Exit;
   end;
   if not PrepareForCompile then
+    Exit;
+  fCompiler.CheckSyntax;
+end;
+
+
+procedure TMainForm.actSyntaxCheckFileExecute(Sender: TObject);
+begin
+  actStopExecuteExecute(Self);
+  if fCompiler.Compiling then begin
+    MessageDlg(Lang[ID_MSG_ALREADYCOMP], mtInformation, [mbOK], 0);
+    Exit;
+  end;
+  if not PrepareForCompile(ctFile) then  //
     Exit;
   fCompiler.CheckSyntax;
 end;
@@ -6814,7 +6830,7 @@ procedure TMainForm.actHelpDonateExecute(Sender: TObject);
 begin
   if Pos('Chinese', devData.Language) > 0 then
     ShellExecute(GetDesktopWindow(), 'open',
-      PChar('https://banzhusoft.github.io/devcpp-cn/donate.htm'),
+      PChar('https://devcpp.gitee.io/donate.htm'), // 'https://banzhusoft.github.io/devcpp-cn/donate.htm'),
       nil, nil, SW_SHOWNORMAL)
   else
     ShellExecute(GetDesktopWindow(), 'open',
@@ -6826,7 +6842,7 @@ procedure TMainForm.actHelpHomepageExecute(Sender: TObject);
 begin
   if Pos('Chinese', devData.Language) > 0 then
     ShellExecute(GetDesktopWindow(), 'open',
-      PChar('https://banzhusoft.github.io/devcpp-cn/'),
+      PChar('https://devcpp.gitee.io'), //'https://banzhusoft.github.io/devcpp-cn/'),
       nil, nil, SW_SHOWNORMAL)
   else
     ShellExecute(GetDesktopWindow(), 'open',
@@ -6876,17 +6892,6 @@ begin
   end;
 end;
 
-procedure TMainForm.actSyntaxCheckFileExecute(Sender: TObject);
-begin
-  actStopExecuteExecute(Self);
-  if fCompiler.Compiling then begin
-    MessageDlg(Lang[ID_MSG_ALREADYCOMP], mtInformation, [mbOK], 0);
-    Exit;
-  end;
-  if not PrepareForCompile(ctFile) then
-    Exit;
-  fCompiler.CheckSyntax;
-end;
 
 procedure TMainForm.LeftPageControlChange(Sender: TObject);
 begin
@@ -6955,6 +6960,8 @@ begin
   end;
 end;
 
+
+
 procedure TMainForm.actToggleCommentInlineExecute(Sender: TObject);
 var
   e: TEditor;
@@ -6972,11 +6979,18 @@ begin
   TCustomAction(Sender).Enabled := Assigned(e) and e.Text.SelAvail;
 end;
 
+
+
+
 procedure TMainForm.actFormatCurrentFileExecute(Sender: TObject);
+
+
 var
   e: TEditor;
   OldCaretXY: TBufferCoord;
   OldTopLine: integer;
+
+
 begin
   if devFormatter.Validate then begin
     e := fEditorList.GetEditor;
@@ -6985,11 +6999,13 @@ begin
       OldTopLine := e.Text.TopLine;
       OldCaretXY := e.Text.CaretXY;
 
-      devFormatter.FormatMemory(e, devFormatter.FullCommand);
+      devFormatter.FormatMemory(e, devFormatter.FullCommand);  //!!!
+      e.ResetBookMarks;
 
       // Attempt to not scroll view
       e.Text.TopLine := OldTopLine;
       e.Text.CaretXY := OldCaretXY;
+
     end;
   end else
     MessageDlg(Lang[ID_FORMATTER_NOTVALID], mtWarning, [mbOK], 0);

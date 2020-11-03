@@ -26,23 +26,23 @@
       <p>初学者最常见的是在源程序中出现字符拼写错误或字符缺失        </p>
       <p><strong>例1</strong>：编译信息第二行指示程序第6行第33列，信息为“<span class="STYLE4">[错误] 期待 ';' 在此之前: 'return'</span>”，这时源程序中已经定位到第6行第33列，该行此时以红色高亮显示。</p>
       <p>鼠标双击该行，使之变成正常编辑时的语法高亮方式显示，仔细查看可以发现，实际问题是<span class="STYLE2"><strong>该行末尾缺少一个分号</strong></span>。修改后再次编译，就能编译成功。</p>
-      <p><img src="images-cn/err1-semi.png" alt="semi" width="903" height="587" /></p>
+      <p><img src="images-cn/err1-semi.png" alt="semi" width="857" height="570" /></p>
       <p>&nbsp;        </p>
       <p><strong>例2</strong>：编译信息中第一条是警告信息，指示第6行第10列；第二条是错误信息，指示第 6 行第 10 列，信息内容都是“<span class="STYLE2"><strong>[错误] 缺失终止的 &quot; 字符</strong></span>”。这时编译器已经定位到源程序中第 6 行，以红色高亮显示该行。</p>
       <p>鼠标双击该行，使之变成正常编辑时的语法高亮方式显示，仔细查看即可发现，<span class="STYLE2"><strong>待输出的字符串最后缺失了一个双引号</strong></span>。修改后再次编译就会成功。</p>
-      <p><img src="images-cn/err2-quote.png" alt="quote" width="903" height="587" /></p>
+      <p><img src="images-cn/err2-quote.png" alt="quote" width="857" height="570" /></p>
       <p>        对这类缺失字符产生的错误，常常在编辑时稍作留心就会发现：在正常编辑时的语法高亮方式显示下，一对双引号内的字符都被视为字符串而以特定的颜色显示，当后面缺失作为字符串结束标志的双引号时，该行后面的字符都被视为字符串而显示为特定的颜色，据此可以辨认出这种错误。</p>
       <p> 这个例子还说明，真实错误未必在编译信息中指示的位置（这是编译器确定程序有错的位置），可能出现在该位置之前或之后。需要检查这个位置的前后，仔细分析和思考，找出真正的错误所在。</p>
       <p>&nbsp;</p>
       <p> <strong>例3</strong>：这里出现了大量的编译信息，都指示到第 8 行的第 10 列之后各列，其中第一条信息为“<span class="STYLE2"><strong>[错误] 非法字符'\241' 在程序中</strong></span>”，后续信息也都类似。</p>
-      <p><img src="images-cn/err3-char.png" alt="char" width="903" height="583" /></p>
+      <p><img src="images-cn/err3-char.png" alt="char" width="857" height="570" /></p>
       <p>鼠标双击该行，使之变成正常编辑时的语法高亮方式显示，仔细查看即可发现，实际错误是该行出现了用中文双引号括起来的中文字符（在应该使用英文引号的地方用了中文引号），修改为英文双引号之后即可编译成功。</p>
       <p> 对这类非法字符产生的错误，常常在编辑时稍作留心就会发现：当光标在该行编辑时，非法字符会以红色粗体字高亮显示。据此可以辨认出这种错误。</p>
       <p>这个例子还说明，出现大量错误信息时也不要慌张，集中注意力解决第一个错误，常常可以消除一批出错信息。另外，凡是出现类似于“非法字符'\241' 在程序中”的错误信息，一般都是因为程序中不正确地书写了中文字符。</p>
       <p>&nbsp;</p>
       <p>        <strong>例4</strong>：出现了三条加工信息，“单元”一栏显示的都不是本程序文件，而是在其它文件中。第2行的错误信息是“<span class="STYLE2"><strong>程序中缺少 main 函数</strong></span>”。仔细查看源程序即可发现，原来是本程序中把“main”误写成“mian”了。这种函数名错误可以正常通过编译，但是在连接时就会出错（出错信息为“<span class="STYLE2"><strong>[错误] 连接器返回错误代码 1</strong></span>”，其中“ld”表示连接程序，“1”是出错代码），原因是连接器找不到主函数了。</p>
       <p><strong>把误写的“mian”修改为正确的“main”</strong>之后即可编译成功。</p>
-      <p><img src="images-cn/err4-mian.png" alt="mian" width="903" height="583" /></p>
+      <p><img src="images-cn/err4-mian.png" alt="mian" width="857" height="570" /></p>
       <p>        这个例子说明，编程不细心就可能犯各种编辑错误，前例中的中文与英文用错是一类常见错误，而此例说明输入英文时也可能产生拼写错误，从而产生编译错误或连接错误。</p>
       <p> 常见的英文拼写错误及其产生的编译错误信息有：</p>
       <ul>
@@ -65,10 +65,10 @@
       <p class="STYLE4">[错误] 重复定义：'i'</p>
       <p>解决办法：删除对该变量的重复定义。</p>
       <p>&nbsp; </p>
-      <p><strong><u>4、源文件编译时一切正常，可是运行时却显示“</u></strong><strong><u>Error 127： 找不到指定的程序</u></strong><strong><u>”</u></strong><strong><u> </u></strong></p>
-      <p>这是在Windows XP下运行Dev-C++ 时由于用户随意更改编译配置而产生的问题。 </p>
+      <p><strong><u>4、在 Windows XP 系统下，源文件编译时一切正常，可是运行时却显示“</u></strong><strong><u>Error 127： 找不到指定的程序</u></strong><strong><u>”</u></strong><strong><u> </u></strong></p>
+      <p>这是在 Windows XP 下运行Dev-C++ 时由于用户随意更改编译配置而产生的问题。 </p>
       <p>Dev-C++ 所集成的 TDM-GCC 编译器可以根据编译配置而编译出不同的可执行文件。Dev-C++ 在工具栏的“编译配置”下拉框中提供了多个不同的配置选项，如下图所示： </p>
-      <p><img src="images-cn/dev-compiler.png" alt="compiler" width="967" height="212" /></p>
+      <p><img src="images-cn/dev-compiler.png" alt="compiler" width="857" height="182" /></p>
       <p>这六个选项中，“64位”表示编译出的可执行文件为 64 位编码，“32位”表示编译出的可执行文件为 32 位编码。由于64位系统能兼容32位软件，所以在64位的Windows 7/Vista/8/10上随便选哪个选项，编译出来的可执行文件都能运行。但是 32 位系统（主要是指 <strong>Windows XP</strong>）上不能运行64位的程序，所以在Windows XP系统上，用户必须选择含有“32位”的选项才行。如果误选了“64位”的选项（初学者常常是不明白它们之间的差别而随意选择），则可以正常编译出可执行文件，但是却不能运行，出现上述错误。 </p>
       <p><strong>解决办法</strong>：在“编译配置”下拉框中改选含有“32位”的选项，然后重新编译运行。 </p>
       <p> </p>

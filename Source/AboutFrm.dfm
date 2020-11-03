@@ -12203,7 +12203,7 @@ object AboutForm: TAboutForm
   object lblLicenseURL: TLabel
     Left = 20
     Top = 188
-    Width = 385
+    Width = 316
     Height = 16
     Cursor = crHandPoint
     Alignment = taCenter
@@ -12571,13 +12571,13 @@ object AboutForm: TAboutForm
       Shape = bsBottomLine
     end
     object lblWebSiteURL: TLabel
-      Left = 124
+      Left = 165
       Top = 48
-      Width = 273
+      Width = 125
       Height = 16
       Cursor = crHandPoint
-      Alignment = taRightJustify
-      Caption = 'devcpp'#39's homepage at github setup with code'
+      Alignment = taCenter
+      Caption = 'devcpp'#39's homepage'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clBlue
       Font.Height = -13

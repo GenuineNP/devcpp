@@ -3,7 +3,7 @@
 			<ProjectGuid>{AC917C2B-5870-48AD-981D-668AD3E4A533}</ProjectGuid>
 			<MainSource>SynEdit_R.dpk</MainSource>
 			<Base>True</Base>
-			<Config Condition="'$(Config)'==''">Debug</Config>
+			<Config Condition="'$(Config)'==''">Release</Config>
 			<TargetedPlatforms>3</TargetedPlatforms>
 			<AppType>Package</AppType>
 			<FrameworkType>VCL</FrameworkType>

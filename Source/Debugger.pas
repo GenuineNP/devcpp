@@ -357,8 +357,8 @@ begin
 
   // Add parent to GUI
   parentnode := DebugView.Items.AddObject(nil, wparent^.name + ' = Execute to evaluate', wparent);
-  parentnode.ImageIndex := 21;
-  parentnode.SelectedIndex := 21;
+  parentnode.ImageIndex := 30;
+  parentnode.SelectedIndex := 30;
 
   // Refer to list from GUI
   wparent^.node := parentnode;

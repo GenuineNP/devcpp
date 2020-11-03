@@ -889,9 +889,8 @@ begin
     with fUnits[idx] do begin
 
 {$WARN SYMBOL_PLATFORM OFF}
-      if fUnits[idx].Modified and FileExists(fUnits[idx].FileName) and (FileGetAttr(fUnits[idx].FileName) and faReadOnly
-        <>
-        0) then begin
+      if fUnits[idx].Modified and FileExists(fUnits[idx].FileName)
+        and (FileGetAttr(fUnits[idx].FileName) and faReadOnly   <> 0) then begin
         // file is read-only
         if MessageDlg(Format(Lang[ID_MSG_FILEISREADONLY], [fUnits[idx].FileName]), mtConfirmation, [mbYes, mbNo], 0) =
           mrNo then

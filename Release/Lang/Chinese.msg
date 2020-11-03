@@ -15,6 +15,8 @@ extra tokens at end of #include directive
 在 #include 指令末尾有多余的符号
 is defined in header
 是定义于头文件
+after struct definition
+在结构体定义后面
 did you forget to
 你是否忘记要
 did you mean
@@ -26,6 +28,8 @@ suggested alternative:
 No such file or directory
 没有这个文件或目录
 In function
+在此函数中：
+in function
 在此函数中：
 was not declared in this scope
 未在此范围内声明
@@ -109,6 +113,10 @@ undefined reference to `WinMain@16'
 程序中缺少 main 函数
 ld returned 1 exit status
 连接器返回错误代码 1
+x86-64 architecture of input file
+x86-64 构架的输入文件
+is incompatible with i386 output
+与 i386 输出不兼容
 assignment of read-only parameter
 赋值给只读参数
 control reaches end of non-void function

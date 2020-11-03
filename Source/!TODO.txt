@@ -1,9 +1,4 @@
 
-Known bug in TMainForm.FormClose:
-open a project, then directly close the Main Form. It will crash.
--- Anbang LI, 2020-4-30
-
-
 
 ---------------------------------------------------------------
 - Add required headers and libraries for D3D11 development

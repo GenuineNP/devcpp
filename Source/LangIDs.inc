@@ -1381,6 +1381,9 @@ const
   ID_FORMATTER_POWEREDBY                = 79019;
   ID_FORMATTER_MAXLINELENGTH            = 79020;
   ID_FORMATTER_LOADERROR                = 79021;
+  ID_FORMATTER_AUTOFORMAT               = 79022;
+  ID_FORMATTER_LINES                    = 79023;
+  ID_FORMATTER_SPACES                   = 79024;
 
   ID_MENU_CUSTOMTOOLS                   = 81000;
   ID_MENU_TOOL1                         = 81001;

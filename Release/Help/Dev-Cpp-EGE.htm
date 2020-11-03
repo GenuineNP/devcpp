@@ -10,8 +10,6 @@
 	color: #990000;
 	font-weight: bold;
 }
-.STYLE3 {color: #990000}
-.STYLE4 {font-size: small}
 .STYLE5 {color: #000000; }
 -->
 </style>
@@ -20,8 +18,8 @@
 <body>
 <table width="1100" border="0" align="center">
   <tr>
-    <td><h1 align="center"><span class="STYLE3"><strong>Dev-C++ 安装&amp;使用教程</strong><strong> </strong></span></h1>
-      <h1 class="STYLE3"><strong>EGE图形函数库简介</strong> </h1>
+    <td><h1 align="center" class="STYLE2"><strong>Dev-C++ 安装&amp;使用教程</strong> </h1>
+      <h1 class="STYLE2"><strong>EGE 图形函数库简介</strong> </h1>
       <p>有很多初学者会注意到，在学习 C/C++ 语言的过程中所编写的程序总是单调的黑白文本界面，因此想要编写出图形界面的程序；而在《计算机图形学》课程中，教学重点是绘图算法，也需要良好的绘图编程环境。 </p>
       <p>在早期由 Borland 公司开发的 Turbo C 或 Borland C 中包含有一个名为“BGI”的图形函数库，可以用于简便地开发图形界面程序。在当代，也有多个图形函数库可供用户在 C/C++ 程序中编写图形界面。 在此我们向读者推荐使用免费开源的<strong>EGE图形函数库</strong>（网站：<a href="https://xege.org/"><u>https://xege.org/</u></a>）。 </p>
       <p><strong>EGE（Easy Graphics Engine）</strong>，是 Windows 下的简易绘图库，是一个类似 BGI (graphics.h) 的面向 C/C++ 语言新手的图形库，它的目标也是为了替代 Turbo C 的BGI库而存在。它的使用方法与 Turbo C 中的 graphics.h 相当接近，对新手来说，简单，友好，容易上手，而且因为接口意义直观，即使是之前完全没有接触过图形编程的，也能迅速学会基本的绘图。而且该图形库的绘图效率高，灵活性强，功能多。 </p>
@@ -41,6 +39,12 @@
       <p>（A）如果当前使用的编译配置中包含有“64位”，则添加“<u>-lgraphics</u><u>64</u><u> -luuid -lmsimg32 -lgdi32 -limm32 -lole32 -loleaut32</u>” </p>
       <p>（B）如果当前使用的编译配置中包含有“32位”，则添加“<u>-lgraphics -luuid -lmsimg32 -lgdi32 -limm32 -lole32 -loleaut32</u><u> </u>”；</p>
       <p>只有这样设置好编译选项，才能正常地编译、连接和运行使用了EGE图形函数库的程序。</p>
+      <p>&nbsp;</p>
+      <h1 class="STYLE2"><strong>Dev-C++ 中附带的 EGE 示例程序</strong></h1>
+      <p class="STYLE1">1、在Examples 目录下，提供了两个使用EGE库进行绘图的程序：</p>
+      <p class="STYLE5"> EGE-FiveStarFlag.cpp ：使用 <a href="https://xege.org/">EGE 图形库</a>（一个面向初学者的免费开源函数库）编写的图形界面程序，绘制五星红旗。 </p>
+      <p class="STYLE5">EGE-RandomLines.cpp ：使用 <a href="https://xege.org/">EGE 图形库</a>编写的图形界面程序，随机地绘制折向的线条，并以端点为圆心绘制圆形。</p>
+      <p class="STYLE1">2、在点击 <strong>新建...</strong> -&gt; <strong>项目</strong> 所弹出的对话框中，在“多媒体”类别下面有“EGE”示例项目（其主程序的内容与 <span class="STYLE5">EGE-RandomLines.cpp</span> 相同）。</p>
       <p align="center">&nbsp;</p>
       <p>&nbsp;</p></td>
   </tr>

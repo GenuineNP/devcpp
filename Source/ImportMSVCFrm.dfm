@@ -66,7 +66,7 @@ object ImportMSVCForm: TImportMSVCForm
     end
     object btnBrowseDev: TSpeedButton
       Left = 314
-      Top = 99
+      Top = 91
       Width = 23
       Height = 23
       Caption = '...'

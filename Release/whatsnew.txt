@@ -1,4 +1,26 @@
 
+Dev-C++ Version 5.15 - 5 September, 2020, by Anbang Li£¨anbangli@foxmail.com )
+
+- (Important change!) Add options in "Formatting Options" dialog ("AStyle -> 
+  Formatting Options"): "Automattically format file before saving", "Adjust 
+  lines" and "Adjust spaces". These Options are checked by default!
+
+- Improved user interface:
+  (1) Removed "Gnome" and "Blue" theme, add new "Modern" theme and set as default.
+  The icons mainly come from "Crystall" and "Tango" icon libraries, and others 
+  are draw by myself.
+  
+  (1) Removed buttons from main toolbar: "Close All", "Profiling Analysis", 
+      "Delete Profiling Information" and "Homepage";
+  (2) Changed Icons of "Debug" and "Stop excution" icons. 
+  (3) Add icons for menu items: "Toggle block comment", "Indent", "Unindent" 
+      and "Homepage"; 
+  (4) Add icons for buttons: "Debug", "Stop execution", "Next line", "Add 
+      watch", "Into Function", "Continue" and "Skip function".
+
+- Some bugs fixed.
+
+
 Dev-C++ Version 5.14 - 22 July, 2020, by Anbang Li£¨anbangli@foxmail.com )
 
 The main improvement of this version is that the working interface has been 

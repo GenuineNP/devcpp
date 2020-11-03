@@ -5,9 +5,9 @@ Dev-C++ is a beginner-friendly integrated development environment (IDE) for C an
 
 Although Dev-C++ lack many mordern highly advanced visual programming tools, Dev-C++ is an excellent IDE to use for programming biginners.
 
-This is an updated fork of Orwell Dev-C++, almost all components are updated to newest version: SynEdit updated to v2.1.0, TDM-GCC updated to v9.2.0, GDB updated to v7.9.1, and AStyle updated to v3.1. Several known bugs were fixed.
+This is an updated fork of Orwell Dev-C++, almost all components are updated to newest version: SynEdit updated to v2.1.0, TDM-GCC updated to v9.2.0, GDB updated to v7.9.1, and AStyle updated to v3.1. Several known bugs were fixed. New user interface theme "Modern" added, and more features added too.
 
-Dev-C++ is distributed under the terms of the GNU GENERAL PUBLIC LICENSE Version 3 (released on 29 June 2007). If you continue to install this software, it means that you agree the license.
+Dev-C++ is distributed under the terms of the GNU GENERAL PUBLIC LICENSE, version 2. If you continue to install this software, it means that you agree the license.
 
-https://banzhusoft.github.io/
+https://banzhusoft.github.io/devcpp/
 https://sourceforge.net/projects/devcpp20/

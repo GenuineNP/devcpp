@@ -23,13 +23,21 @@ object FormatterOptionsForm: TFormatterOptionsForm
   PixelsPerInch = 96
   TextHeight = 17
   object lblPoweredBy: TLabel
-    Left = 0
+    Left = 8
     Top = 569
-    Width = 321
+    Width = 305
     Height = 23
+    Cursor = crHandPoint
     Alignment = taCenter
     AutoSize = False
-    Caption = 'Powered by AStyle'
+    Caption = 'Powered by Artistic Style'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlue
+    Font.Height = -13
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    ParentFont = False
+    OnClick = lblPoweredByClick
   end
   object lblPreview: TLabel
     Left = 8
@@ -149,9 +157,9 @@ object FormatterOptionsForm: TFormatterOptionsForm
   end
   object grpOptions: TGroupBox
     Left = 8
-    Top = 8
+    Top = 40
     Width = 584
-    Height = 263
+    Height = 250
     Caption = 'Options'
     TabOrder = 4
     object lblBracketStyle: TLabel
@@ -189,8 +197,8 @@ object FormatterOptionsForm: TFormatterOptionsForm
       Height = 2
     end
     object lblIndentParts: TLabel
-      Left = 280
-      Top = 16
+      Left = 288
+      Top = 51
       Width = 201
       Height = 17
       Caption = 'Indent the following kinds of code:'
@@ -250,7 +258,7 @@ object FormatterOptionsForm: TFormatterOptionsForm
     end
     object chkClasses: TCheckBox
       Left = 288
-      Top = 40
+      Top = 74
       Width = 129
       Height = 17
       Caption = 'Classes'
@@ -259,7 +267,7 @@ object FormatterOptionsForm: TFormatterOptionsForm
     end
     object chkSwitches: TCheckBox
       Left = 288
-      Top = 64
+      Top = 97
       Width = 129
       Height = 17
       Caption = 'Switches'
@@ -268,7 +276,7 @@ object FormatterOptionsForm: TFormatterOptionsForm
     end
     object chkNamespace: TCheckBox
       Left = 432
-      Top = 40
+      Top = 77
       Width = 129
       Height = 17
       Caption = 'Namespaces'
@@ -277,7 +285,7 @@ object FormatterOptionsForm: TFormatterOptionsForm
     end
     object chkCases: TCheckBox
       Left = 288
-      Top = 88
+      Top = 120
       Width = 129
       Height = 17
       Caption = 'Cases'
@@ -286,7 +294,7 @@ object FormatterOptionsForm: TFormatterOptionsForm
     end
     object chkLabels: TCheckBox
       Left = 432
-      Top = 64
+      Top = 100
       Width = 129
       Height = 17
       Caption = 'Labels'
@@ -295,7 +303,7 @@ object FormatterOptionsForm: TFormatterOptionsForm
     end
     object chkPreprocessor: TCheckBox
       Left = 432
-      Top = 88
+      Top = 123
       Width = 129
       Height = 17
       Caption = 'Preprocessor'
@@ -304,9 +312,9 @@ object FormatterOptionsForm: TFormatterOptionsForm
     end
     object memFullCommand: TMemo
       Left = 16
-      Top = 174
+      Top = 177
       Width = 552
-      Height = 81
+      Height = 64
       TabOrder = 9
       OnChange = CommandChange
     end
@@ -318,7 +326,7 @@ object FormatterOptionsForm: TFormatterOptionsForm
       MaxValue = 200
       MinValue = 50
       TabOrder = 10
-      Value = 80
+      Value = 100
       OnChange = OptionChange
     end
     object chkMaxLineLength: TCheckBox
@@ -330,5 +338,31 @@ object FormatterOptionsForm: TFormatterOptionsForm
       TabOrder = 11
       OnClick = OptionChange
     end
+    object chkAdjustSpaces: TCheckBox
+      Left = 432
+      Top = 24
+      Width = 129
+      Height = 17
+      Caption = 'Adjust spaces'
+      TabOrder = 12
+      OnClick = OptionChange
+    end
+    object chkAdjustLines: TCheckBox
+      Left = 288
+      Top = 20
+      Width = 129
+      Height = 25
+      Caption = 'Adjust lines'
+      TabOrder = 13
+      OnClick = OptionChange
+    end
+  end
+  object chkAutoFormat: TCheckBox
+    Left = 24
+    Top = 6
+    Width = 449
+    Height = 33
+    Caption = 'Automatically format current file before saving'
+    TabOrder = 5
   end
 end

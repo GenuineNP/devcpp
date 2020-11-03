@@ -49,14 +49,14 @@ object MainForm: TMainForm
     Top = 269
     Width = 1047
     Height = 177
-    ActivePage = DebugSheet
+    ActivePage = CompSheet
     Align = alBottom
     Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
     Font.Height = -12
     Font.Name = 'MS Sans Serif'
     Font.Style = []
-    Images = dmMain.MenuImages_NewLook
+    Images = dmMain.MenuImages_Modern
     MultiLine = True
     ParentFont = False
     PopupMenu = MessagePopup
@@ -64,11 +64,7 @@ object MainForm: TMainForm
     OnChange = MessageControlChange
     object CompSheet: TTabSheet
       Caption = 'Compiler'
-      ImageIndex = 28
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
+      ImageIndex = 41
       object CompilerOutput: TListView
         Left = 0
         Top = 0
@@ -118,11 +114,7 @@ object MainForm: TMainForm
     end
     object ResSheet: TTabSheet
       Caption = 'Resource'
-      ImageIndex = 2
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
+      ImageIndex = 12
       object ResourceOutput: TListView
         Left = 0
         Top = 0
@@ -172,11 +164,7 @@ object MainForm: TMainForm
     end
     object LogSheet: TTabSheet
       Caption = 'Compile log'
-      ImageIndex = 43
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
+      ImageIndex = 48
       object InfoGroupBox: TPanel
         Left = 0
         Top = 0
@@ -253,7 +241,7 @@ object MainForm: TMainForm
     end
     object DebugSheet: TTabSheet
       Caption = 'Debugging'
-      ImageIndex = 32
+      ImageIndex = 46
       object DebugSendPanel: TPanel
         Left = 589
         Top = 0
@@ -337,47 +325,39 @@ object MainForm: TMainForm
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           Glyph.Data = {
-            36040000424D3604000000000000360000002800000010000000100000000100
-            2000000000000004000000000000000000000000000000000000FF00FF00FF00
-            FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-            FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-            FF00FF00FF00FF00FF000000000000000000FF00FF00FF00FF00FF00FF00FF00
-            FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-            FF00FF00FF0000000000FF7BB500FF7BB50000000000FF00FF00FF00FF00FF00
-            FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-            FF0000000000FF9CC600FF9CC600FF7BB500FF7BB50000000000FF00FF00FF00
-            FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF000000
-            0000FF9CC600FF9CC600FF9CC600FF9CC600FF7BB500FF7BB50000000000FF00
-            FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF006B6B6B00FFB5
-            D600FFB5D600FF9CC600FFCEE700FFCEE700FFB5D600FF9CC600FF7BB5000000
-            0000FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF0000000000FFCE
-            E700FFB5D600FFCEE7000000000000000000FFDEEF00FFB5D600FF9CC600FF7B
-            B50000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00FF0000000000FFCE
-            E700FFCEE70000000000FF00FF00FF00FF0000000000FFDEEF00FFB5D600FF9C
-            C600FF7BB50000000000FF00FF00FF00FF00FF00FF00FF00FF0000000000F7F7
-            F70000000000FF00FF00FF00FF00FF00FF00FF00FF0000000000FFDEEF00FFB5
-            D600FF9CC600FF7BB50000000000FF00FF00FF00FF00FF00FF00FF00FF000000
-            0000FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF0000000000FFDE
-            EF00FFB5D600FF9CC600FF7BB50000000000FF00FF00FF00FF00FF00FF00FF00
-            FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF000000
-            0000FFDEEF00FFB5D600FF9CC600FF7BB50000000000FF00FF00FF00FF00FF00
-            FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-            FF0000000000FFDEEF00FFB5D600FF9CC600FF7BB50000000000FF00FF00FF00
-            FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-            FF00FF00FF0000000000FFDEEF00FFB5D600FF7BB50000000000FF00FF00FF00
-            FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-            FF00FF00FF00FF00FF0000000000FFDEEF00FF7BB50000000000FF00FF00FF00
-            FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-            FF00FF00FF00FF00FF00FF00FF0000000000FFC6DE0000000000FF00FF00FF00
-            FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-            FF00FF00FF00FF00FF00FF00FF00FF00FF0000000000FF00FF00}
+            36030000424D3603000000000000360000002800000010000000100000000100
+            18000000000000030000C40E0000C40E00000000000000000000F0F0F0F0F0F0
+            F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+            F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+            F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+            0202029D5374EFAAC9F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0FD92
+            92FD1E1EFD9292F0F0F0F0F0F0F0F0F000000082425E000000A7778CF0F0F0F0
+            F0F0F0F0F0F0F0F0F0F0F0F0F0F0FF8484FF0000FF8484F0F0F0F0F0F0F0F0F0
+            000000FF85BBE576A7000000000000D799B4F0F0F0F0F0F0F0F0F0F0F0F0FF84
+            84FF0000FF8484F0F0F0F0F0F0F0F0F0000000FF97C4FF8EBEFF7FB7BE5E8800
+            0000000000EFAAC9F0F0F0F0F0F0FF8484FF0000FF8484F0F0F0F0F0F0F0F0F0
+            000000FF9CC6FF9AC6FF92C0FF7EB6FF7FB77C425C000000000000F0F0F0FF84
+            84FF0000FF8484F0F0F0F0F0F0F0F0F0000000FFB5D6FFA8CDFFA3CBFF96C4FF
+            84B9FF7FB7E672A5000000000000FF8484FF0000FF8484F0F0F0F0F0F0F0F0F0
+            000000FFCBE5FFB5D6FFA1C9FFA6CEFF9CC7FF9CC6FF81B8FA8ABC363636FF84
+            84FF0000FF8484F0F0F0F0F0F0F0F0F0000000FFCBE5FFCBE5FFB5D6FFA4CBFF
+            9CC6FF9CC6E97EAC9D53749F9F9FFF8484FF0000FF8484F0F0F0F0F0F0F0F0F0
+            000000FFCBE5FFCBE5FFCBE5FFB5D6B982992020209F9F9FF0F0F0F0F0F0FF84
+            84FF0000FF8484F0F0F0F0F0F0F0F0F0000000FFCBE5FFCBE56060602020209F
+            9F9FF0F0F0F0F0F0F0F0F0F0F0F0FF8484FF0000FF8484F0F0F0F0F0F0F0F0F0
+            0000006060602020209F9F9FF0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0FF84
+            84FF0000FF8484F0F0F0F0F0F0F0F0F02424249F9F9FF0F0F0F0F0F0F0F0F0F0
+            F0F0F0F0F0F0F0F0F0F0F0F0F0F0F9ADADF95A5AF9ADADF0F0F0F0F0F0F0F0F0
+            F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+            F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+            F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0}
           ParentFont = False
         end
         object StopExecBtn: TSpeedButton
           Left = 4
           Top = 38
           Width = 112
-          Height = 25
+          Height = 28
           Action = actStopExecute
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
@@ -386,39 +366,39 @@ object MainForm: TMainForm
           Font.Style = []
           Glyph.Data = {
             36040000424D3604000000000000360000002800000010000000100000000100
-            2000000000000004000000000000000000000000000000000000FF00FF00FF00
-            FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-            FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-            FF00FF00FF00FF00FF0000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00
-            FF00FF00FF0000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-            FF00FF00FF00000000000000A50000000000FF00FF00FF00FF00FF00FF00FF00
-            FF00000000000000A50000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00
-            FF00000000000000FF000000D6000000A50000000000FF00FF00FF00FF000000
-            00000000D6000000D6000000A50000000000FF00FF00FF00FF00FF00FF000000
-            00007B7BFF006B6BFF000000FF000000D6000000A50000000000000000000000
-            D6000000FF000000FF000000D6000000A50000000000FF00FF00FF00FF00FF00
-            FF00000000007B7BFF006B6BFF000000FF000000D6000000FF000000FF000000
-            FF000000FF000000FF000000D60000000000FF00FF00FF00FF00FF00FF00FF00
-            FF00FF00FF00000000007B7BFF006B6BFF000000FF000000FF000000FF000000
-            FF000000FF000000D60000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00
-            FF00FF00FF00FF00FF00000000000000FF000000FF000000FF000000FF000000
-            FF000000FF0000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-            FF00FF00FF00FF00FF00000000000000FF000000FF000000FF000000FF000000
-            FF000000FF0000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-            FF00FF00FF00000000006B6BFF000000FF000000FF000000FF000000FF000000
-            FF000000D6000000A50000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00
-            FF00000000006B6BFF000000FF000000FF000000FF000000FF000000FF006B6B
-            FF000000FF000000D6000000A50000000000FF00FF00FF00FF00FF00FF000000
-            00007B7BFF006B6BFF000000FF000000FF006B6BFF0000000000000000007B7B
-            FF006B6BFF000000FF000000D6000000A50000000000FF00FF00FF00FF00FF00
-            FF00000000007B7BFF006B6BFF006B6BFF0000000000FF00FF00FF00FF000000
-            00007B7BFF006B6BFF000000FF0000000000FF00FF00FF00FF00FF00FF00FF00
-            FF00FF00FF00000000007B7BFF0000000000FF00FF00FF00FF00FF00FF00FF00
-            FF00000000007B7BFF0000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00
-            FF00FF00FF00FF00FF0000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00
-            FF00FF00FF0000000000FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-            FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00
-            FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00FF00}
+            20000000000000040000C40E0000C40E00000000000000000000FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF009F9FCF607F7FBF807F7FBF807F7FBF807F7FBF807F7F
+            BF807F7FBF809797CB68F7F7FB08FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00AFAFD750002AA500002AA500002AA500002AA500002AA500002A
+            A500002AA500002AA5009797CB68FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF007F7FBF80002AA500002AA500002AA500002AA500002AA500002A
+            A500002AA500002AA5007F7FBF80FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF007F7FBF80002AA500002AA500002AA500002AA500002AA500002A
+            A500002AA500002AA5007F7FBF80FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF007F7FBF80002AA500002AA500002AA500002AA500002AA500002A
+            A500002AA500002AA5007F7FBF80FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF007F7FBF80002AA500002AA500002AA500002AA500002AA500002A
+            A500002AA500002AA5007F7FBF80FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF007F7FBF80002AA500002AA500002AA500002AA500002AA500002A
+            A500002AA500002AA5007F7FBF80FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF007F7FBF80002AA500002AA500002AA500002AA500002AA500002A
+            A500002AA500002AA5007F7FBF80FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00CFCFE730002AA500002AA500002AA500002AA500002AA500002A
+            A500002AA500002AA500AFAFD750FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00DFDFEF207F7FBF807F7FBF807F7FBF807F7FBF807F7F
+            BF807F7FBF80D7D7EB28FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+            FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00}
           ParentFont = False
         end
         object lblEvaluate: TLabel
@@ -434,10 +414,10 @@ object MainForm: TMainForm
           Font.Style = []
           ParentFont = False
         end
-        object NextLineBtn: TButton
-          Left = 236
+        object NextLineBtn: TSpeedButton
+          Left = 238
           Top = 8
-          Width = 112
+          Width = 108
           Height = 25
           Action = actNextLine
           Font.Charset = DEFAULT_CHARSET
@@ -445,27 +425,39 @@ object MainForm: TMainForm
           Font.Height = -12
           Font.Name = 'MS Sans Serif'
           Font.Style = []
+          Glyph.Data = {
+            36030000424D3603000000000000360000002800000010000000100000000100
+            1800000000000003000012170000121700000000000000000000F0F0F0F0F0F0
+            F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+            F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0FF0000F0F0F0F0
+            F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+            F0F0F0F0F0F0F0F0F0FF0000FF0000F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+            F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0FF0000FF0000FF0000FF0000FF
+            0000F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+            FF0000FF0000C08000FF0000FF0000F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+            F0F0F0F0F0F0F0F0F0F0F0F0F0FF0000FF0000C08000F0F0F0FF0000F0F0F0F0
+            F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0FF0000
+            C08000F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0FF68A88000800000000000008000
+            80F0F0F0F0F0F0F0F0F0F0F0F0FF0000C08000F0F0F0F0F0F0F0F0F0F0F0F0F0
+            F0F0BE5E88FFA1C9FF68A8FF68A8FF68A8000000F0F0F0F0F0F0F0F0F0FF0000
+            C08000F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0BE5E88FFA1C9FFA1C9FF68A8FF68
+            A8BE5E88800080F0F0F0F0F0F0FF0000C08000F0F0F0F0F0F0F0F0F0F0F0F0F0
+            F0F0BE5E88FFA1C9FFA1C9FFA1C9FF68A8BE5E88800080F0F0F0F0F0F0FF0000
+            C08000F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0BE5E88FFA1C9FFA1C9FFA1C9FFA1
+            C9BE5E88800080F0F0F0F0F0F0FF0000C08000F0F0F0F0F0F0F0F0F0F0F0F0F0
+            F0F0F0F0F0BE5E88FFFFCCFFFFCCFFFFCCFFFFCCBE5E88F0F0F0F0F0F0C08000
+            FF0000C08000F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0BE5E88BE5E88BE5E
+            88BE5E88FF68A8F0F0F0F0F0F0C08000FF0000FF0000FF0000C08000F0F0F0F0
+            F0F0FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0F0F0F0F0F0
+            C08000FF0000FF0000FF0000F0F0F0F0F0F0FFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+            F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0}
           ParentFont = False
-          TabOrder = 0
         end
-        object StepOverBtn: TButton
-          Left = 352
-          Top = 8
-          Width = 112
-          Height = 25
-          Action = actStepOver
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -12
-          Font.Name = 'MS Sans Serif'
-          Font.Style = []
-          ParentFont = False
-          TabOrder = 1
-        end
-        object IntoLineBtn: TButton
-          Left = 236
-          Top = 38
-          Width = 112
+        object IntoLineBtn: TSpeedButton
+          Left = 239
+          Top = 39
+          Width = 107
           Height = 25
           Action = actStepLine
           Font.Charset = DEFAULT_CHARSET
@@ -473,13 +465,145 @@ object MainForm: TMainForm
           Font.Height = -12
           Font.Name = 'MS Sans Serif'
           Font.Style = []
+          Glyph.Data = {
+            36030000424D3603000000000000360000002800000010000000100000000100
+            1800000000000003000012170000121700000000000000000000F0F0F0F0F0F0
+            F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+            F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+            F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+            F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+            F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+            F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+            F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+            F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0C08000F0F0F0F0
+            F0F0FF68A8800080000000000000800080F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+            F0F0F0F0F0F0F0F0F0FF0000C08000F0F0F0BE5E88FFA1C9FF68A8FF68A8FF68
+            A8000000F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0C08000C08000FF0000FF0000C0
+            8000BE5E88FFA1C9FFA1C9FF68A8FF68A8BE5E88800080F0F0F0F0F0F0F0F0F0
+            C08000FF0000FF0000FF0000FF0000FF0000BE5E88FFA1C9FFA1C9FFA1C9FF68
+            A8BE5E88800080F0F0F0F0F0F0C08000FF0000FF0000F0F0F0FF0000FF0000F0
+            F0F0BE5E88FFA1C9FFA1C9FFA1C9FFA1C9BE5E88800080F0F0F0F0F0F0FF0000
+            FF0000F0F0F0F0F0F0FF0000F0F0F0F0F0F0F0F0F0BE5E88FFFFCCFFFFCCFFFF
+            CCFFFFCCBE5E88F0F0F0F0F0F0FF0000FF0000F0F0F0F0F0F0F0F0F0F0F0F0F0
+            F0F0F0F0F0F0F0F0BE5E88BE5E88BE5E88BE5E88FF68A8F0F0F0F0F0F0FF0000
+            FF0000F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+            F0F0F0F0F0F0F0F0F0F0F0F0F0C08000FF0000F0F0F0F0F0F0F0F0F0F0F0F0F0
+            F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+            F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+            F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+            F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0}
           ParentFont = False
-          TabOrder = 2
         end
-        object AddWatchBtn: TButton
-          Left = 120
+        object StepOverBtn: TSpeedButton
+          Left = 352
           Top = 8
-          Width = 112
+          Width = 113
+          Height = 25
+          Action = actStepOver
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          Glyph.Data = {
+            36030000424D3603000000000000360000002800000010000000100000000100
+            1800000000000003000012170000121700000000000000000000FFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEF
+            AAC9FFFBFDFFFFFFFFFFFFFFFFFFFFFFFFC07B7BFF2020FFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000000000EFAAC9FFFFFFFFFFFFFFFF
+            FFC07B7BFF0000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00
+            0000FF7FB7000000EFAAC9FFFFFFFFFFFFC07B7BFF0000FFFFFFFFFFFF616161
+            000000000000000000000000000000000000FF7FB7FF7FB7000000EFAAC9FFFF
+            FFC07B7BFF0000FFFFFFFFFFFF666666FFCBE5FFCBE5FFA6CEFFA6CEFFA6CEEF
+            AAC9FF7FB7FF7FB7FF7FB7000000FFBFDBC07B7BFF0000FFFFFFFFFFFF666666
+            FFCBE5FFCBE5FFCBE5FFA6CEFFA6CEFFA6CEEFAAC9FF7FB7FF7FB7FF7FB70000
+            00C07B7BFF0000FFFFFFFFFFFFA0A0A0FFCBE5FFCBE5FFCBE5FFCBE5FFA6CEFF
+            A6CEFFA6CEEFAAC9FF7FB7000000FFDFEDC07B7BFF0000FFFFFFFFFFFF404040
+            000000000000000000000000000000000000FFA6CEFFA6CE000000FFEBF4FFFF
+            FFC07B7BFF0000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00
+            0000FFA6CE000000FFF7FAFFFFFFFFFFFFC07B7BFF0000FFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000000000FFFFFFFFFFFFFFFFFFFFFF
+            FFC07B7BFF0000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF9F
+            9F9FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFC07B7BFF6060FFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+          ParentFont = False
+        end
+        object SkipFuncBtn: TSpeedButton
+          Left = 352
+          Top = 40
+          Width = 113
+          Height = 26
+          Action = actSkipFunction
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          Glyph.Data = {
+            36030000424D3603000000000000360000002800000010000000100000000100
+            1800000000000003000012170000121700000000000000000000F0F0F0F0F0F0
+            F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+            F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+            F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+            F0F0F0FF0000C08000F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+            F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0FF0000FF0000FF0000C08000F0F0F0F0
+            F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0FF0000
+            FF0000FF0000FF0000FF0000C08000F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+            F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0FF0000C08000F0F0F0F0F0F0F0
+            F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+            F0F0F0FF0000FF0000F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+            F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0FF0000FF0000F0F0F0F0F0F0FF
+            68A8800080000000000000800080F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+            F0F0F0C08000FF0000C08000F0F0F0BE5E88FFA1C9FF68A8FF68A8FF68A80000
+            00F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0FF0000FF0000C08000BE
+            5E88FFA1C9FFA1C9FF68A8FF68A8BE5E88800080F0F0F0F0F0F0F0F0F0F0F0F0
+            F0F0F0F0F0F0C08000FF0000C08000BE5E88FFA1C9FFA1C9FFA1C9FF68A8BE5E
+            88800080F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0BE
+            5E88FFA1C9FFA1C9FFA1C9FFA1C9BE5E88800080F0F0F0F0F0F0F0F0F0F0F0F0
+            F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0BE5E88FFFFCCFFFFCCFFFFCCFFFF
+            CCBE5E88F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+            F0F0F0F0F0BE5E88BE5E88BE5E88BE5E88FF68A8F0F0F0F0F0F0F0F0F0F0F0F0
+            F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+            F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0
+            F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0F0}
+          ParentFont = False
+        end
+        object NextInsBtn: TSpeedButton
+          Left = 470
+          Top = 7
+          Width = 110
+          Height = 25
+          Action = actNextIns
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object IntoInsBtn: TSpeedButton
+          Left = 472
+          Top = 40
+          Width = 105
+          Height = 26
+          Action = actStepIns
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object AddWatchBtn: TSpeedButton
+          Left = 122
+          Top = 8
+          Width = 103
           Height = 25
           Action = actAddWatch
           Font.Charset = DEFAULT_CHARSET
@@ -487,14 +611,40 @@ object MainForm: TMainForm
           Font.Height = -12
           Font.Name = 'MS Sans Serif'
           Font.Style = []
+          Glyph.Data = {
+            36030000424D3603000000000000360000002800000010000000100000000100
+            18000000000000030000120B0000120B00000000000000000000BFBFBFBFBFBF
+            BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+            BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF0F0F0F0F
+            0F0F0F0F0F0F0F0FBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+            BFBFBFBFBFBFBFBFBF0F0F0F00C04400A33B00A33B008D310F0F0FBFBFBFBFBF
+            BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF0F0F0F94FF9400
+            C04400B33F00A33B0F0F0FBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+            BFBFBFBFBFBFBFBFBF0F0F0F94FF9400C04400C04400A33B0F0F0FBFBFBFBFBF
+            BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF0F0F0F0F0F0F0F0F0F0F0F0F94FF9400
+            C04400C04400A33B0F0F0F0F0F0F0F0F0F0F0F0FBFBFBFBFBFBFBFBFBF353535
+            00C04400A33B00A33B00A33B00C04400C04400C04400A33B00A33B00A33B00A3
+            3B008D310F0F0FBFBFBFBFBFBF35353594FF9400C04400C04400C04400C04400
+            C04400C04400C04400C04400C04400B33F00A33B0F0F0FBFBFBFBFBFBF353535
+            94FF9400E05000C04400C04400C04400C04400C04400C04400C04400C04400C0
+            4400A33B0F0F0FBFBFBFBFBFBF5B5B5BBFFFD694FF9494FF9494FF94BFFFD600
+            C04400C04400C044BFFFD694FF9494FF9400C0440F0F0FBFBFBFBFBFBFBFBFBF
+            5B5B5B35353535353535353594FF9400C04400C04400A33B0F0F0F0F0F0F0F0F
+            0F0F0F0FBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF35353594FF9400
+            C04400C04400A33B0F0F0FBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+            BFBFBFBFBFBFBFBFBF35353594FF9400E05000C04400A33B0F0F0FBFBFBFBFBF
+            BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF5B5B5BBFFFD694
+            FF9494FF9400C0440F0F0FBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+            BFBFBFBFBFBFBFBFBFBFBFBF5B5B5B353535353535353535BFBFBFBFBFBFBFBF
+            BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF
+            BFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBFBF}
           ParentFont = False
-          TabOrder = 4
         end
-        object ViewCPUBtn: TButton
-          Left = 120
-          Top = 38
-          Width = 112
-          Height = 25
+        object ViewCPUBtn: TSpeedButton
+          Left = 122
+          Top = 40
+          Width = 103
+          Height = 26
           Action = actViewCPU
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
@@ -502,7 +652,6 @@ object MainForm: TMainForm
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
-          TabOrder = 3
         end
         object EvaluateInput: TComboBox
           Left = 91
@@ -510,7 +659,7 @@ object MainForm: TMainForm
           Width = 491
           Height = 24
           Anchors = [akLeft, akTop, akRight]
-          TabOrder = 5
+          TabOrder = 0
           OnKeyPress = EvaluateInputKeyPress
         end
         object EvalOutput: TMemo
@@ -527,59 +676,13 @@ object MainForm: TMainForm
           ParentFont = False
           ReadOnly = True
           ScrollBars = ssBoth
-          TabOrder = 6
-        end
-        object SkipFuncBtn: TButton
-          Left = 352
-          Top = 38
-          Width = 112
-          Height = 25
-          Action = actSkipFunction
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -12
-          Font.Name = 'MS Sans Serif'
-          Font.Style = []
-          ParentFont = False
-          TabOrder = 7
-        end
-        object IntoInsBtn: TButton
-          Left = 468
-          Top = 38
-          Width = 112
-          Height = 25
-          Action = actStepIns
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -12
-          Font.Name = 'MS Sans Serif'
-          Font.Style = []
-          ParentFont = False
-          TabOrder = 8
-        end
-        object NextInsBtn: TButton
-          Left = 468
-          Top = 8
-          Width = 112
-          Height = 25
-          Action = actNextIns
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -12
-          Font.Name = 'MS Sans Serif'
-          Font.Style = []
-          ParentFont = False
-          TabOrder = 9
+          TabOrder = 1
         end
       end
     end
     object FindSheet: TTabSheet
       Caption = 'Find results'
-      ImageIndex = 21
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
+      ImageIndex = 30
       object FindOutput: TListView
         Left = 0
         Top = 0
@@ -633,10 +736,6 @@ object MainForm: TMainForm
     object CloseSheet: TTabSheet
       Caption = 'Close'
       ImageIndex = 9
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
     end
   end
   object ToolbarDock: TControlBar
@@ -657,12 +756,12 @@ object MainForm: TMainForm
     object tbMain: TToolBar
       Left = 11
       Top = 2
-      Width = 142
+      Width = 118
       Height = 24
       Caption = 'Main'
       EdgeInner = esNone
       EdgeOuter = esNone
-      Images = dmMain.MenuImages_NewLook
+      Images = dmMain.MenuImages_Modern
       ParentShowHint = False
       ShowHint = True
       TabOrder = 0
@@ -692,21 +791,16 @@ object MainForm: TMainForm
         Top = 0
         Action = actClose
       end
-      object CloseAllBtn: TToolButton
-        Left = 115
-        Top = 0
-        Action = actCloseAll
-      end
     end
     object tbCompile: TToolBar
-      Left = 414
+      Left = 390
       Top = 2
-      Width = 209
+      Width = 131
       Height = 24
       Caption = 'Compile and Run'
       EdgeInner = esNone
       EdgeOuter = esNone
-      Images = dmMain.MenuImages_NewLook
+      Images = dmMain.MenuImages_Modern
       ParentShowHint = False
       ShowHint = True
       TabOrder = 1
@@ -726,13 +820,8 @@ object MainForm: TMainForm
         Top = 0
         Action = actCompRun
       end
-      object RebuildAllBtn: TToolButton
-        Left = 69
-        Top = 0
-        Action = actRebuild
-      end
       object ToolButton2: TToolButton
-        Left = 92
+        Left = 69
         Top = 0
         Width = 8
         Caption = 'ToolButton2'
@@ -740,12 +829,12 @@ object MainForm: TMainForm
         Style = tbsSeparator
       end
       object DebugBtn: TToolButton
-        Left = 100
+        Left = 77
         Top = 0
         Action = actDebug
       end
       object ToolButton3: TToolButton
-        Left = 123
+        Left = 100
         Top = 0
         Width = 8
         Caption = 'ToolButton3'
@@ -753,27 +842,9 @@ object MainForm: TMainForm
         Style = tbsSeparator
       end
       object StopBtn: TToolButton
-        Left = 131
+        Left = 108
         Top = 0
         Action = actStopExecute
-      end
-      object ToolButton5: TToolButton
-        Left = 154
-        Top = 0
-        Width = 8
-        Caption = 'ToolButton5'
-        ImageIndex = 48
-        Style = tbsSeparator
-      end
-      object ProfileBtn: TToolButton
-        Left = 162
-        Top = 0
-        Action = actProfile
-      end
-      object ProfilingInforBtn: TToolButton
-        Left = 185
-        Top = 0
-        Action = actDeleteProfile
       end
     end
     object tbProject: TToolBar
@@ -784,7 +855,7 @@ object MainForm: TMainForm
       Caption = 'Project'
       EdgeInner = esNone
       EdgeOuter = esNone
-      Images = dmMain.MenuImages_NewLook
+      Images = dmMain.MenuImages_Modern
       ParentShowHint = False
       ShowHint = True
       TabOrder = 2
@@ -819,14 +890,14 @@ object MainForm: TMainForm
       end
     end
     object tbEdit: TToolBar
-      Left = 166
+      Left = 142
       Top = 2
       Width = 235
       Height = 24
       Caption = 'Edit'
       EdgeInner = esNone
       EdgeOuter = esNone
-      Images = dmMain.MenuImages_NewLook
+      Images = dmMain.MenuImages_Modern
       ParentShowHint = False
       ShowHint = True
       TabOrder = 3
@@ -904,7 +975,7 @@ object MainForm: TMainForm
     object tbClasses: TToolBar
       Left = 125
       Top = 30
-      Width = 684
+      Width = 642
       Height = 24
       Caption = 'tbClasses'
       EdgeInner = esNone
@@ -914,7 +985,7 @@ object MainForm: TMainForm
       object cmbClasses: TComboBox
         Left = 0
         Top = 0
-        Width = 350
+        Width = 334
         Height = 22
         Style = csDropDownList
         Ctl3D = True
@@ -936,9 +1007,9 @@ object MainForm: TMainForm
           '(globals)')
       end
       object cmbMembers: TComboBox
-        Left = 350
+        Left = 334
         Top = 0
-        Width = 331
+        Width = 307
         Height = 22
         Style = csDropDownList
         Ctl3D = True
@@ -957,10 +1028,11 @@ object MainForm: TMainForm
       end
     end
     object tbCompilers: TToolBar
-      Left = 636
+      Left = 581
       Top = 2
       Width = 233
       Height = 24
+      ButtonHeight = 23
       Caption = 'tbCompilers'
       EdgeInner = esNone
       EdgeOuter = esNone
@@ -1031,15 +1103,11 @@ object MainForm: TMainForm
     object LeftProjectSheet: TTabSheet
       Caption = 'Project'
       ImageIndex = -1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object ProjectView: TTreeView
         Left = 0
         Top = 0
         Width = 185
-        Height = 182
+        Height = 181
         Align = alClient
         Anchors = [akLeft, akTop, akBottom]
         BevelInner = bvNone
@@ -1111,15 +1179,11 @@ object MainForm: TMainForm
     object LeftDebugSheet: TTabSheet
       Caption = 'Debug'
       ImageIndex = -1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object DebugView: TTreeView
         Left = 0
         Top = 0
         Width = 185
-        Height = 182
+        Height = 181
         Align = alClient
         BevelInner = bvNone
         BevelOuter = bvNone
@@ -1185,6 +1249,8 @@ object MainForm: TMainForm
       OnDragOver = EditorPageControlDragOver
       OnMouseDown = EditorPageControlMouseDown
       OnMouseMove = EditorPageControlMouseMove
+      ExplicitLeft = -1
+      ExplicitTop = -3
     end
     object EditorPageControlRight: TPageControl
       Left = 851
@@ -1206,7 +1272,7 @@ object MainForm: TMainForm
   end
   object MainMenu: TMainMenu
     AutoLineReduction = maManual
-    Images = dmMain.MenuImages_NewLook
+    Images = dmMain.MenuImages_Modern
     Left = 238
     Top = 79
     object FileMenu: TMenuItem
@@ -1218,7 +1284,7 @@ object MainForm: TMainForm
       end
       object mnuNew: TMenuItem
         Caption = 'New...'
-        ImageIndex = 16
+        ImageIndex = 1
         object NewprojectItem: TMenuItem
           Action = actNewProject
         end
@@ -1291,7 +1357,7 @@ object MainForm: TMainForm
       end
       object ExportItem: TMenuItem
         Caption = '&Export'
-        ImageIndex = 12
+        ImageIndex = 13
         object HTMLItem: TMenuItem
           Action = actExportHTML
         end
@@ -1499,13 +1565,9 @@ object MainForm: TMainForm
         Action = actProjectManager
         AutoCheck = True
       end
-      object StatusbarItem: TMenuItem
-        Action = actStatusbar
-        AutoCheck = True
-      end
       object ToolbarsItem: TMenuItem
         Caption = '&Toolbars'
-        ImageIndex = 44
+        ImageIndex = 36
         object ToolMainItem: TMenuItem
           AutoCheck = True
           Caption = '&Main'
@@ -1545,6 +1607,10 @@ object MainForm: TMainForm
           Checked = True
           OnClick = ToolbarDockClick
         end
+      end
+      object StatusbarItem: TMenuItem
+        Action = actStatusbar
+        AutoCheck = True
       end
       object oDolist1: TMenuItem
         Action = actViewToDoList
@@ -1612,38 +1678,20 @@ object MainForm: TMainForm
       end
       object SyntaxCheckItem: TMenuItem
         Action = actSyntaxCheck
+        Visible = False
       end
       object SyntaxCheckCurrentFile1: TMenuItem
         Action = actSyntaxCheckFile
+        Visible = False
       end
       object N10: TMenuItem
         Caption = '-'
+        Visible = False
       end
       object mnuExecParameters: TMenuItem
         Action = actExecParams
       end
-      object N8: TMenuItem
-        Caption = '-'
-      end
-      object N49: TMenuItem
-        Action = actProjectMakeFile
-      end
-      object N18: TMenuItem
-        Caption = '-'
-      end
-      object CleanItem: TMenuItem
-        Action = actClean
-      end
       object N29: TMenuItem
-        Caption = '-'
-      end
-      object Profileanalysis1: TMenuItem
-        Action = actProfile
-      end
-      object DeleteProfilingInformation: TMenuItem
-        Action = actDeleteProfile
-      end
-      object N25: TMenuItem
         Caption = '-'
       end
       object Abortcompilation2: TMenuItem
@@ -1656,11 +1704,26 @@ object MainForm: TMainForm
       object Abortcompilation1: TMenuItem
         Action = actDebug
       end
-      object N12: TMenuItem
-        Caption = '-'
-      end
       object Programreset1: TMenuItem
         Action = actStopExecute
+      end
+      object N8: TMenuItem
+        Caption = '-'
+      end
+      object N49: TMenuItem
+        Action = actProjectMakeFile
+      end
+      object CleanItem: TMenuItem
+        Action = actClean
+      end
+      object N25: TMenuItem
+        Caption = '-'
+      end
+      object Profileanalysis1: TMenuItem
+        Action = actProfile
+      end
+      object DeleteProfilingInformation: TMenuItem
+        Action = actDeleteProfile
       end
     end
     object ToolsMenu: TMenuItem
@@ -1729,11 +1792,11 @@ object MainForm: TMainForm
       object N36: TMenuItem
         Caption = '-'
       end
-      object NextItem: TMenuItem
-        Action = actNext
-      end
       object PreviousItem: TMenuItem
         Action = actPrev
+      end
+      object NextItem: TMenuItem
+        Action = actNext
       end
       object N32: TMenuItem
         Caption = '-'
@@ -1778,6 +1841,7 @@ object MainForm: TMainForm
     end
   end
   object EditorPopup: TPopupMenu
+    Images = dmMain.MenuImages_Modern
     Left = 307
     Top = 80
     object GotoDeclEditor: TMenuItem
@@ -1888,9 +1952,9 @@ object MainForm: TMainForm
     end
   end
   object UnitPopup: TPopupMenu
-    Images = dmMain.MenuImages_NewLook
+    Images = dmMain.MenuImages_Modern
     Left = 27
-    Top = 159
+    Top = 151
     object RemoveFilefromprojectPopItem: TMenuItem
       Action = actUnitRemove
     end
@@ -1918,7 +1982,7 @@ object MainForm: TMainForm
     end
   end
   object ProjectPopup: TPopupMenu
-    Images = dmMain.MenuImages_NewLook
+    Images = dmMain.MenuImages_Modern
     Left = 27
     Top = 96
     object NewunitinprojectPopItem: TMenuItem
@@ -1951,7 +2015,7 @@ object MainForm: TMainForm
     end
   end
   object ActionList: TActionList
-    Images = dmMain.MenuImages_NewLook
+    Images = dmMain.MenuImages_Modern
     Left = 384
     Top = 84
     object actViewCPU: TAction
@@ -1964,21 +2028,21 @@ object MainForm: TMainForm
       Tag = 1
       Category = 'File'
       Caption = '&Source File'
-      ImageIndex = 1
+      ImageIndex = 0
       ShortCut = 16462
       OnExecute = actNewSourceExecute
     end
     object actNewFiles: TAction
       Category = 'File'
       Caption = '&New Files'
-      ImageIndex = 56
+      ImageIndex = 1
       OnExecute = actNewFilesExecute
     end
     object actNewProject: TAction
       Tag = 2
       Category = 'File'
       Caption = '&Project...'
-      ImageIndex = 0
+      ImageIndex = 2
       OnExecute = actNewProjectExecute
     end
     object actNewTemplate: TAction
@@ -1992,7 +2056,7 @@ object MainForm: TMainForm
     object actNewClass: TAction
       Category = 'File'
       Caption = '&Class...'
-      ImageIndex = 51
+      ImageIndex = 4
       OnExecute = actBrowserNewClassExecute
       OnUpdate = actBrowserNewClassUpdate
     end
@@ -2000,7 +2064,7 @@ object MainForm: TMainForm
       Tag = 1
       Category = 'File'
       Caption = '&Open project or file...'
-      ImageIndex = 4
+      ImageIndex = 5
       ShortCut = 16463
       OnExecute = actOpenExecute
     end
@@ -2008,7 +2072,7 @@ object MainForm: TMainForm
       Tag = 2
       Category = 'File'
       Caption = '&Clear History'
-      ImageIndex = 5
+      ImageIndex = 15
       OnExecute = actHistoryClearExecute
     end
     object actSave: TAction
@@ -2057,7 +2121,6 @@ object MainForm: TMainForm
       Tag = 11
       Category = 'File'
       Caption = 'Close All'
-      ImageIndex = 50
       ShortCut = 24663
       OnExecute = actCloseAllExecute
       OnUpdate = actUpdatePageCount
@@ -2066,7 +2129,7 @@ object MainForm: TMainForm
       Tag = 6
       Category = 'File'
       Caption = 'Close Project'
-      ImageIndex = 11
+      ImageIndex = 10
       OnExecute = actCloseProjectExecute
       OnUpdate = actUpdateProject
     end
@@ -2102,7 +2165,7 @@ object MainForm: TMainForm
       Tag = 8
       Category = 'File'
       Caption = '&Print'
-      ImageIndex = 10
+      ImageIndex = 14
       ShortCut = 16464
       OnExecute = actPrintExecute
       OnUpdate = actUpdateEmptyEditor
@@ -2117,7 +2180,7 @@ object MainForm: TMainForm
       Tag = 10
       Category = 'File'
       Caption = 'E&xit Dev-C++'
-      ImageIndex = 11
+      ImageIndex = 16
       ShortCut = 32883
       OnExecute = actExitExecute
     end
@@ -2125,7 +2188,7 @@ object MainForm: TMainForm
       Tag = 1
       Category = 'Edit'
       Caption = '&Undo'
-      ImageIndex = 13
+      ImageIndex = 17
       ShortCut = 16474
       OnExecute = actUndoExecute
       OnUpdate = actUndoUpdate
@@ -2134,7 +2197,7 @@ object MainForm: TMainForm
       Tag = 2
       Category = 'Edit'
       Caption = '&Redo'
-      ImageIndex = 14
+      ImageIndex = 18
       ShortCut = 16473
       OnExecute = actRedoExecute
       OnUpdate = actRedoUpdate
@@ -2143,7 +2206,7 @@ object MainForm: TMainForm
       Tag = 3
       Category = 'Edit'
       Caption = 'C&ut'
-      ImageIndex = 15
+      ImageIndex = 19
       ShortCut = 16472
       OnExecute = actCutExecute
       OnUpdate = actCutUpdate
@@ -2152,7 +2215,7 @@ object MainForm: TMainForm
       Tag = 4
       Category = 'Edit'
       Caption = '&Copy'
-      ImageIndex = 16
+      ImageIndex = 20
       ShortCut = 16451
       OnExecute = actCopyExecute
       OnUpdate = actCopyUpdate
@@ -2161,7 +2224,7 @@ object MainForm: TMainForm
       Tag = 5
       Category = 'Edit'
       Caption = '&Paste'
-      ImageIndex = 17
+      ImageIndex = 21
       ShortCut = 16470
       OnExecute = actPasteExecute
       OnUpdate = actPasteUpdate
@@ -2178,7 +2241,7 @@ object MainForm: TMainForm
       Tag = 1
       Category = 'Search'
       Caption = '&Find'
-      ImageIndex = 21
+      ImageIndex = 30
       ShortCut = 16454
       OnExecute = actFindExecute
       OnUpdate = actUpdateEmptyEditorFindForm
@@ -2195,7 +2258,7 @@ object MainForm: TMainForm
       Tag = 3
       Category = 'Search'
       Caption = '&Replace'
-      ImageIndex = 22
+      ImageIndex = 31
       ShortCut = 16466
       OnExecute = actReplaceExecute
       OnUpdate = actUpdateEmptyEditorFindForm
@@ -2218,7 +2281,7 @@ object MainForm: TMainForm
       Tag = 5
       Category = 'Search'
       Caption = '&Go to line...'
-      ImageIndex = 24
+      ImageIndex = 33
       ShortCut = 16455
       OnExecute = actGotoLineExecute
       OnUpdate = actUpdateEmptyEditor
@@ -2227,6 +2290,7 @@ object MainForm: TMainForm
       Category = 'View'
       AutoCheck = True
       Caption = '&Project Manager'
+      ImageIndex = 35
       OnExecute = actProjectManagerExecute
     end
     object actStatusbar: TAction
@@ -2239,7 +2303,7 @@ object MainForm: TMainForm
       Tag = 1
       Category = 'Project'
       Caption = '&New Unit'
-      ImageIndex = 1
+      ImageIndex = 37
       OnExecute = actProjectNewExecute
       OnUpdate = actUpdateProject
     end
@@ -2247,7 +2311,7 @@ object MainForm: TMainForm
       Tag = 2
       Category = 'Project'
       Caption = '&Add file...'
-      ImageIndex = 25
+      ImageIndex = 38
       OnExecute = actProjectAddExecute
       OnUpdate = actUpdateProject
     end
@@ -2255,7 +2319,7 @@ object MainForm: TMainForm
       Tag = 3
       Category = 'Project'
       Caption = '&Remove file...'
-      ImageIndex = 26
+      ImageIndex = 39
       OnExecute = actProjectRemoveExecute
       OnUpdate = actUpdateProject
     end
@@ -2263,7 +2327,7 @@ object MainForm: TMainForm
       Tag = 5
       Category = 'Project'
       Caption = '&Options...'
-      ImageIndex = 27
+      ImageIndex = 40
       ShortCut = 16456
       OnExecute = actProjectOptionsExecute
       OnUpdate = actUpdateProject
@@ -2286,7 +2350,7 @@ object MainForm: TMainForm
       Category = 'Execute'
       Caption = '&Compile'
       Hint = 'Compile'
-      ImageIndex = 28
+      ImageIndex = 41
       ShortCut = 120
       OnExecute = actCompileExecute
       OnUpdate = actCompileUpdate
@@ -2296,7 +2360,7 @@ object MainForm: TMainForm
       Category = 'Execute'
       Caption = '&Run'
       Hint = 'Run'
-      ImageIndex = 31
+      ImageIndex = 42
       ShortCut = 121
       OnExecute = actRunExecute
       OnUpdate = actRunUpdate
@@ -2306,7 +2370,7 @@ object MainForm: TMainForm
       Category = 'Execute'
       Caption = 'Compile && Run'
       Hint = 'Compile and Run'
-      ImageIndex = 33
+      ImageIndex = 43
       ShortCut = 122
       OnExecute = actCompRunExecute
       OnUpdate = actCompileRunUpdate
@@ -2316,7 +2380,7 @@ object MainForm: TMainForm
       Category = 'Execute'
       Caption = 'R&ebuild All'
       Hint = 'Rebuild All'
-      ImageIndex = 30
+      ImageIndex = 44
       ShortCut = 123
       OnExecute = actRebuildExecute
       OnUpdate = actCompileUpdate
@@ -2326,7 +2390,7 @@ object MainForm: TMainForm
       Category = 'Execute'
       Caption = 'C&lean'
       Hint = 'Clean'
-      ImageIndex = 5
+      ImageIndex = 15
       OnExecute = actCleanExecute
       OnUpdate = actCompileUpdate
     end
@@ -2334,7 +2398,7 @@ object MainForm: TMainForm
       Tag = 6
       Category = 'Debug'
       Caption = '&Debug'
-      ImageIndex = 32
+      ImageIndex = 46
       ShortCut = 116
       OnExecute = actDebugExecute
       OnUpdate = actCompileUpdate
@@ -2343,28 +2407,28 @@ object MainForm: TMainForm
       Tag = 1
       Category = 'Tools'
       Caption = '&Compiler Options...'
-      ImageIndex = 34
+      ImageIndex = 59
       OnExecute = actCompOptionsExecute
     end
     object actEnviroOptions: TAction
       Tag = 2
       Category = 'Tools'
       Caption = '&Environment Options...'
-      ImageIndex = 35
+      ImageIndex = 60
       OnExecute = actEnviroOptionsExecute
     end
     object actEditorOptions: TAction
       Tag = 3
       Category = 'Tools'
       Caption = 'E&ditor Options...'
-      ImageIndex = 36
+      ImageIndex = 61
       OnExecute = actEditorOptionsExecute
     end
     object actConfigTools: TAction
       Tag = 4
       Category = 'Tools'
       Caption = 'Configure &Tools...'
-      ImageIndex = 37
+      ImageIndex = 63
       OnExecute = actConfigToolsExecute
     end
     object actFullScreen: TAction
@@ -2372,7 +2436,7 @@ object MainForm: TMainForm
       Category = 'Window'
       AutoCheck = True
       Caption = '&Full screen mode'
-      ImageIndex = 38
+      ImageIndex = 65
       ShortCut = 16506
       OnExecute = actFullScreenExecute
     end
@@ -2380,7 +2444,7 @@ object MainForm: TMainForm
       Tag = 2
       Category = 'Window'
       Caption = '&Next'
-      ImageIndex = 39
+      ImageIndex = 67
       ShortCut = 16393
       OnExecute = actNextExecute
       OnUpdate = actUpdatePageCount
@@ -2389,7 +2453,7 @@ object MainForm: TMainForm
       Tag = 3
       Category = 'Window'
       Caption = '&Previous'
-      ImageIndex = 40
+      ImageIndex = 66
       ShortCut = 24585
       OnExecute = actPrevExecute
       OnUpdate = actUpdatePageCount
@@ -2397,7 +2461,7 @@ object MainForm: TMainForm
     object actAbout: TAction
       Category = 'Help'
       Caption = 'About...'
-      ImageIndex = 42
+      ImageIndex = 70
       OnExecute = actAboutExecute
     end
     object actUnitRemove: TAction
@@ -2438,12 +2502,14 @@ object MainForm: TMainForm
     object actShowBars: TAction
       Category = 'View'
       Caption = 'Show Toolbars'
+      ImageIndex = 36
       ShortCut = 16507
       OnExecute = actShowBarsExecute
     end
     object actBreakPoint: TAction
       Category = 'Debug'
       Caption = 'Toggle Breakpoint'
+      ImageIndex = 55
       ShortCut = 115
       OnExecute = actBreakPointExecute
       OnUpdate = actUpdateEmptyEditor
@@ -2451,19 +2517,18 @@ object MainForm: TMainForm
     object actAddWatch: TAction
       Category = 'Debug'
       Caption = '&Add watch'
-      ImageIndex = 21
+      ImageIndex = 50
       OnExecute = actAddWatchExecute
       OnUpdate = actUpdatePageCount
     end
     object actEditWatch: TAction
       Category = 'Debug'
       Caption = '&Edit watch'
-      ImageIndex = 36
     end
     object actStepOver: TAction
       Category = 'Debug'
       Caption = '&Continue'
-      ImageIndex = 14
+      ImageIndex = 54
       OnExecute = actStepOverExecute
       OnUpdate = actUpdateDebuggerRunning
     end
@@ -2475,14 +2540,14 @@ object MainForm: TMainForm
     object actRemoveWatch: TAction
       Category = 'Debug'
       Caption = '&Remove watch'
-      ImageIndex = 5
+      ImageIndex = 51
       OnExecute = actRemoveWatchExecute
       OnUpdate = actUpdateDeleteWatch
     end
     object actStopExecute: TAction
       Category = 'Debug'
       Caption = 'Stop execution'
-      ImageIndex = 11
+      ImageIndex = 47
       ShortCut = 117
       OnExecute = actStopExecuteExecute
       OnUpdate = actStopExecuteUpdate
@@ -2498,14 +2563,14 @@ object MainForm: TMainForm
       Category = 'Execute'
       Caption = '&Syntax Check'
       Hint = 'Syntax Check'
-      ImageIndex = 49
+      ImageIndex = 45
       OnExecute = actSyntaxCheckExecute
       OnUpdate = actCompileUpdate
     end
     object actConfigdevShortcuts: TAction
       Category = 'Tools'
       Caption = 'Configure &Shortcuts'
-      ImageIndex = 31
+      ImageIndex = 62
       OnExecute = actConfigdevShortcutsExecute
     end
     object actComment: TAction
@@ -2525,7 +2590,7 @@ object MainForm: TMainForm
     object actToggleComment: TAction
       Category = 'Edit'
       Caption = 'Toggle Comment'
-      ImageIndex = 54
+      ImageIndex = 26
       ShortCut = 16575
       OnExecute = actToggleCommentExecute
       OnUpdate = actUpdateEmptyEditor
@@ -2533,6 +2598,7 @@ object MainForm: TMainForm
     object actToggleCommentInline: TAction
       Category = 'Edit'
       Caption = 'Toggle Inline Comment'
+      ImageIndex = 27
       ShortCut = 16570
       OnExecute = actToggleCommentInlineExecute
       OnUpdate = actToggleCommentInlineUpdate
@@ -2540,6 +2606,7 @@ object MainForm: TMainForm
     object actIndent: TAction
       Category = 'Edit'
       Caption = 'Indent'
+      ImageIndex = 28
       ShortCut = 9
       OnExecute = actIndentExecute
       OnUpdate = actUpdateIndent
@@ -2547,6 +2614,7 @@ object MainForm: TMainForm
     object actUnindent: TAction
       Category = 'Edit'
       Caption = 'Unindent'
+      ImageIndex = 29
       ShortCut = 8201
       OnExecute = actUnindentExecute
       OnUpdate = actUpdateIndent
@@ -2554,7 +2622,7 @@ object MainForm: TMainForm
     object actGotoFunction: TAction
       Category = 'Search'
       Caption = 'Goto function'
-      ImageIndex = 44
+      ImageIndex = 34
       ShortCut = 24647
       OnExecute = actGotoFunctionExecute
       OnUpdate = actUpdateEmptyEditor
@@ -2574,21 +2642,21 @@ object MainForm: TMainForm
     object actBrowserNewClass: TAction
       Category = 'ClassBrowser'
       Caption = 'New class'
-      ImageIndex = 51
+      ImageIndex = 4
       OnExecute = actBrowserNewClassExecute
       OnUpdate = actBrowserNewClassUpdate
     end
     object actBrowserNewMember: TAction
       Category = 'ClassBrowser'
       Caption = 'New member function'
-      ImageIndex = 52
+      ImageIndex = 72
       OnExecute = actBrowserNewMemberExecute
       OnUpdate = actBrowserNewMemberUpdate
     end
     object actBrowserNewVar: TAction
       Category = 'ClassBrowser'
       Caption = 'New variable'
-      ImageIndex = 53
+      ImageIndex = 73
       OnExecute = actBrowserNewVarExecute
       OnUpdate = actBrowserNewVarUpdate
     end
@@ -2615,7 +2683,7 @@ object MainForm: TMainForm
       Category = 'Execute'
       Caption = '&Syntax Check Current File'
       Hint = 'Syntax Check File'
-      ImageIndex = 49
+      ImageIndex = 45
       ShortCut = 16504
       OnExecute = actSyntaxCheckFileExecute
       OnUpdate = actCompileUpdate
@@ -2624,7 +2692,7 @@ object MainForm: TMainForm
       Category = 'Execute'
       Caption = 'Profile analysis'
       Hint = 'Profiling'
-      ImageIndex = 43
+      ImageIndex = 48
       OnExecute = actProfileExecute
       OnUpdate = actCompileRunUpdate
     end
@@ -2723,14 +2791,13 @@ object MainForm: TMainForm
     object actModifyWatch: TAction
       Category = 'Debug'
       Caption = '&Modify watch'
-      ImageIndex = 37
       OnExecute = actModifyWatchExecute
       OnUpdate = actModifyWatchUpdate
     end
     object actNextLine: TAction
       Category = 'Debug'
       Caption = '&Next line'
-      ImageIndex = 18
+      ImageIndex = 53
       ShortCut = 118
       OnExecute = actNextLineExecute
       OnUpdate = actUpdateDebuggerRunning
@@ -2738,6 +2805,7 @@ object MainForm: TMainForm
     object actStepLine: TAction
       Category = 'Debug'
       Caption = 'Into line'
+      ImageIndex = 52
       ShortCut = 119
       OnExecute = actStepLineExecute
       OnUpdate = actUpdateDebuggerRunning
@@ -2746,7 +2814,7 @@ object MainForm: TMainForm
       Category = 'Execute'
       Caption = 'Delete Profiling information'
       Hint = 'Delete Profile'
-      ImageIndex = 47
+      ImageIndex = 49
       OnExecute = actDeleteProfileExecute
       OnUpdate = actRunUpdate
     end
@@ -2775,20 +2843,18 @@ object MainForm: TMainForm
     object actInsert: TAction
       Category = 'Edit'
       Caption = 'Insert'
-      ImageIndex = 18
+      ImageIndex = 22
       OnExecute = actInsertExecute
       OnUpdate = actUpdatePageCount
     end
     object actToggle: TAction
       Category = 'Edit'
       Caption = 'Toggle Bookmarks'
-      ImageIndex = 19
       OnUpdate = actUpdatePageCount
     end
     object actGoto: TAction
       Category = 'Edit'
       Caption = 'Goto Bookmark'
-      ImageIndex = 20
       OnUpdate = actUpdatePageCount
     end
     object actNextIns: TAction
@@ -2902,18 +2968,18 @@ object MainForm: TMainForm
     object actPackageCheck: TAction
       Category = 'Tools'
       Caption = '&Check for Packages'
-      ImageIndex = 41
+      ImageIndex = 63
     end
     object actPackageManager: TAction
       Category = 'Tools'
       Caption = 'Package Manager'
-      ImageIndex = 48
+      ImageIndex = 63
       OnExecute = actPackageManagerExecute
     end
     object actHelpDevcpp: TAction
       Category = 'Help'
       Caption = 'Dev-C++ &Help'
-      ImageIndex = 46
+      ImageIndex = 68
       ShortCut = 112
       OnExecute = actHelpDevcppExecute
     end
@@ -2932,7 +2998,7 @@ object MainForm: TMainForm
     object actOpenFolder: TAction
       Category = 'File'
       Caption = 'Open Containing Folder'
-      ImageIndex = 0
+      ImageIndex = 5
       ShortCut = 16450
       OnExecute = actOpenFolderExecute
       OnUpdate = actUpdatePageCount
@@ -2946,7 +3012,7 @@ object MainForm: TMainForm
     object actFormatCurrentFile: TAction
       Category = 'AStyle'
       Caption = 'Format Current File'
-      ImageIndex = 55
+      ImageIndex = 64
       ShortCut = 24641
       OnExecute = actFormatCurrentFileExecute
       OnUpdate = actUpdateEmptyEditor
@@ -2985,26 +3051,27 @@ object MainForm: TMainForm
     object actHelpHomepage: TAction
       Category = 'Help'
       Caption = 'Homepage'
+      ImageIndex = 69
       OnExecute = actHelpHomepageExecute
     end
     object actToggleBookmark: TAction
       Category = 'Edit'
       Caption = 'Toggle Bookmark'
-      ImageIndex = 20
+      ImageIndex = 23
       ShortCut = 16459
       OnExecute = actToggleBookmarkExecute
     end
     object actPrevBookmark: TAction
       Category = 'Edit'
       Caption = 'Goto Prev Bookmark'
-      ImageIndex = 57
+      ImageIndex = 24
       ShortCut = 16469
       OnExecute = actPrevBookmarkExecute
     end
     object actNextBookmark: TAction
       Category = 'Edit'
       Caption = 'Goto Next Bookmark'
-      ImageIndex = 58
+      ImageIndex = 25
       ShortCut = 16458
       OnExecute = actNextBookmarkExecute
     end
@@ -3074,7 +3141,7 @@ object MainForm: TMainForm
     Top = 152
   end
   object BrowserPopup: TPopupMenu
-    Images = dmMain.MenuImages_NewLook
+    Images = dmMain.MenuImages_Modern
     Left = 96
     Top = 100
     object mnuBrowserGotoDecl: TMenuItem
@@ -3126,7 +3193,7 @@ object MainForm: TMainForm
     end
   end
   object DebugPopup: TPopupMenu
-    Images = dmMain.MenuImages_NewLook
+    Images = dmMain.MenuImages_Modern
     OnPopup = DebugPopupPopup
     Left = 152
     Top = 100
@@ -3161,7 +3228,7 @@ object MainForm: TMainForm
     Top = 206
   end
   object FolderPopup: TPopupMenu
-    Images = dmMain.MenuImages_NewLook
+    Images = dmMain.MenuImages_Modern
     Left = 20
     Top = 200
     object Addfolder2: TMenuItem
